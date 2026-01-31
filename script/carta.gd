@@ -1,14 +1,15 @@
-class_name Carta extends Node2D
-
-var naipe: int
-var ranque: int
+extends Node2D
 
 var selecionado: bool = false
 
-func atualizar_valor(carta: Vector2):
-	self.naipe = abs(carta.x)
-	self.ranque = abs(carta.y)
-	$Sprite.texture = load("res://placeholder/sprite/%d-%d.png" % [naipe, ranque])
+func selecionar_sprite(carta: Vector2i) -> void:
+	if carta == Vector2i(0, 0):
+		$Sprite.texture = null
+	elif carta == Vector2i(-1, -1):
+		$Sprite.texture = load("res://placeholder/sprite/cenoura.png")
+	else:
+		$Sprite.texture = load("res://placeholder/sprite/%d-%d.png" % [carta.x, carta.y])
+	
 
 func _on_area_mouse_entered() -> void:
 	if not selecionado:
@@ -43,3 +44,8 @@ func _on_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -
 			_on_area_mouse_entered.call()
 		
 	
+func desselecionar() -> void:
+	selecionado = false
+	self.position.y += 70
+	self.scale = Vector2(1, 1)
+	self.z_index = 0

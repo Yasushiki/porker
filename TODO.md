@@ -11,6 +11,7 @@
 - [ ] calcular quanto custa cada mão
 - [ ] programar o exódia
 - [ ] programar a cenoura (espanta exódia)
+- [x] sistema de descartar carta
 
 ### Power-ups
 - [ ] poder ver quanto custa a mão do usuário

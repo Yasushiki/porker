@@ -7,15 +7,15 @@
 script = ExtResource("1_pxxx3")
 
 [node name="Carta0" parent="." instance=ExtResource("1_ddlim")]
-position = Vector2(-334, 0)
+position = Vector2(-344, 0)
 
 [node name="Carta1" parent="." instance=ExtResource("1_ddlim")]
-position = Vector2(-167, 0)
+position = Vector2(-172, 0)
 
 [node name="Carta2" parent="." instance=ExtResource("1_ddlim")]
 
 [node name="Carta3" parent="." instance=ExtResource("1_ddlim")]
-position = Vector2(167, 0)
+position = Vector2(172, 0)
 
 [node name="Carta4" parent="." instance=ExtResource("1_ddlim")]
-position = Vector2(334, 0)
+position = Vector2(344, 0)

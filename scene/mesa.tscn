@@ -20,3 +20,12 @@ texture = ExtResource("2_u8ww1")
 position = Vector2(996, 448)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_u8ww1")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 490.0
+offset_top = 101.0
+offset_right = 694.0
+offset_bottom = 215.0
+text = "Descartar selecionadas"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

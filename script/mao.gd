@@ -1,26 +1,58 @@
-class_name Mao extends Node2D
+class_name Mao extends Node
 
 var baralho: Baralho
-var mao: Array[Vector2] = []
+var mao: Array[Vector2i] = [Vector2i(), Vector2i(), Vector2i(), Vector2i(), Vector2i()]
 
-func set_baralho(ref_baralho: Baralho):
+func set_baralho(ref_baralho: Baralho) -> void:
 	baralho = ref_baralho
+	
 
-func ordenar_mao():
-	mao.sort_custom(func(a: Vector2, b: Vector2): return a > b)
+func ordenar_mao() -> void:
+	mao.sort_custom(func(a: Vector2i, b: Vector2i): return a < b)
+	mao.sort_custom(func(_a: Vector2i, b: Vector2i): return b == Vector2i())
+	
 
-func renderizar_mao():
-	$Carta0.atualizar_valor(mao[0])
-	$Carta1.atualizar_valor(mao[1])
-	$Carta2.atualizar_valor(mao[2])
-	$Carta3.atualizar_valor(mao[3])
-	$Carta4.atualizar_valor(mao[4])
+func renderizar_mao() -> void:
+	var cartas: Array = get_children()
+	var i: int = 0
+	for carta in cartas:
+		carta.selecionar_sprite(mao[i])
+		i += 1
+		
+	
 
-func criar_mao():
+func comprar_carta() -> void:
+	if not baralho.monte.is_empty():
+		var carta: Vector2i = baralho.monte.pick_random()
+		
+		baralho.descartar_carta(carta)
+		for i in range(5):
+			if mao[i] == Vector2i():
+				mao[i] = carta
+				break
+		
+	
+
+func criar_mao() -> void:
 	for i in range(5):
-		var carta: Vector2 = baralho.monte.pick_random()
-		baralho.monte.erase(carta)
-		baralho.descarte.append(carta)
-		mao.append(carta)
+		comprar_carta()
 	ordenar_mao()
 	renderizar_mao()
+	
+
+func descartar_selecionadas() -> void:
+	var cartas: Array = get_children()
+	var c: int = 0
+	
+	for i in range(cartas.size()):
+		if cartas[i].selecionado:
+			cartas[i].desselecionar()
+			mao[i] = Vector2i()
+			c += 1
+	
+	for i in range(c):
+		comprar_carta()
+	
+	ordenar_mao()
+	renderizar_mao()
+	
