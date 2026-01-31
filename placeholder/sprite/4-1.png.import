@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn2igfj0x0iwk"
-path="res://.godot/imported/1-copa.png-e6722cdff97e498cb764178416e234de.ctex"
+uid="uid://byrlfhcuvcqj3"
+path="res://.godot/imported/4-1.png-329eae2b55e8364c2821d0c3ee2c9a17.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite/1-copa.png"
-dest_files=["res://.godot/imported/1-copa.png-e6722cdff97e498cb764178416e234de.ctex"]
+source_file="res://placeholder/sprite/4-1.png"
+dest_files=["res://.godot/imported/4-1.png-329eae2b55e8364c2821d0c3ee2c9a17.ctex"]
 
 [params]
 

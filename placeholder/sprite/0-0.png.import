@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhkeatohuju3"
-path="res://.godot/imported/1-ouro.png-160445e4a196012d24a63358ef6cd4de.ctex"
+uid="uid://bkkhi8luys5bu"
+path="res://.godot/imported/0-0.png-3bec09d9be5eb8d33555eade12afb24b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite/1-ouro.png"
-dest_files=["res://.godot/imported/1-ouro.png-160445e4a196012d24a63358ef6cd4de.ctex"]
+source_file="res://placeholder/sprite/0-0.png"
+dest_files=["res://.godot/imported/0-0.png-3bec09d9be5eb8d33555eade12afb24b.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c77lnbg5bw2ia"
-path="res://.godot/imported/3-copa.png-1db26cf091e708936d6c55a941b6d710.ctex"
+path="res://.godot/imported/1-3.png-031d4bcd7fbf743d983a30322f283db9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite/3-copa.png"
-dest_files=["res://.godot/imported/3-copa.png-1db26cf091e708936d6c55a941b6d710.ctex"]
+source_file="res://placeholder/sprite/1-3.png"
+dest_files=["res://.godot/imported/1-3.png-031d4bcd7fbf743d983a30322f283db9.ctex"]
 
 [params]
 

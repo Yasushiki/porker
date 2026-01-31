@@ -1,38 +1,45 @@
 class_name Carta extends Node2D
 
-@export var numero: int
-@export var naipe: String
+var naipe: int
+var ranque: int
 
-@export var indice: int
+var selecionado: bool = false
 
-var selecionado = false
-
-func _ready() -> void:
-	$Sprite.texture = load("res://sprite/%d-%s.png" % [numero, naipe])
+func atualizar_valor(carta: Vector2):
+	self.naipe = abs(carta.x)
+	self.ranque = abs(carta.y)
+	$Sprite.texture = load("res://placeholder/sprite/%d-%d.png" % [naipe, ranque])
 
 func _on_area_mouse_entered() -> void:
 	if not selecionado:
-		$Sprite.scale = Vector2(1.15, 1.15)
+		$Sprite.scale = Vector2(1.1, 1.1)
 		self.z_index = 2
+		Global.hover = true
+	
 
 func _on_area_mouse_exited() -> void:
 	if not selecionado:
 		$Sprite.scale = Vector2(1, 1)
 		self.z_index = 0
+		Global.hover = false
 	
 
-
-func _on_area_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.is_action_pressed("mouse_click") and event.button_index == 1:
+func _on_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if event is InputEventMouseButton and \
+	event.is_action_pressed("mouse_click") and \
+	event.button_index == 1:
+		$Sprite.scale = Vector2(1, 1)
 		if not selecionado:
 			selecionado = true
 			self.position.y -= 70
-			self.scale = Vector2(1.25, 1.25)
+			self.scale = Vector2(1.1, 1.1)
 			self.z_index = 1
-			self.rotation = 0
-		elif selecionado:
+			Global.hover = false
+		elif selecionado and not Global.hover:
 			selecionado = false
 			self.position.y += 70
 			self.scale = Vector2(1, 1)
 			self.z_index = 0
-			self.rotation = (indice*5)*PI/180.0
+			_on_area_mouse_entered.call()
+		
+	

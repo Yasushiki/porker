@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhjh006gknjg2"
-path="res://.godot/imported/3-pau.png-26199c9996d7d87fa269c2231d304a16.ctex"
+uid="uid://dhkeatohuju3"
+path="res://.godot/imported/3-1.png-c1054488cafb0694c6c55b61a72b0e58.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite/3-pau.png"
-dest_files=["res://.godot/imported/3-pau.png-26199c9996d7d87fa269c2231d304a16.ctex"]
+source_file="res://placeholder/sprite/3-1.png"
+dest_files=["res://.godot/imported/3-1.png-c1054488cafb0694c6c55b61a72b0e58.ctex"]
 
 [params]
 
