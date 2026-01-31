@@ -1,6 +1,6 @@
 # PROGRAMÁTICA
 ## Bugs para corrigir
-- [ ] quando uma carta está selecionada, se você fizer o hover na carta ao lado, e clicar na parte que sobrepõe à carta selecionada, a carta pode ou não ser selecionada, o mesmo acontece ao desselecionar, que pode ou não desselecionar a carta
+- [x] quando uma carta está selecionada, se você fizer o hover na carta ao lado, e clicar na parte que sobrepõe à carta selecionada, a carta pode ou não ser selecionada, o mesmo acontece ao desselecionar, que pode ou não desselecionar a carta 
 
 ## Features
 ### Jogo
