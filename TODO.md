@@ -10,7 +10,7 @@
 - [ ] sistema de dinheiro
 - [ ] calcular quanto custa cada mão
 - [ ] programar o exódia
-= [ ] programar a cenoura (espanta exódia)
+- [ ] programar a cenoura (espanta exódia)
 
 ### Power-ups
 - [ ] poder ver quanto custa a mão do usuário
