@@ -1,37 +1,37 @@
 # ARTE
 ## Cartas
-[ ] 5 naipes
-[ ] Leitão, Porco, Porca, Zhu Bajie, Exódia, Cenoura
-[ ] Verso da carta
+- [ ] 5 naipes
+- [ ] Leitão, Porco, Porca, Zhu Bajie, Exódia, Cenoura
+- [ ] Verso da carta
 
 ## Ícones
-[ ] Vida
-[ ] Dinheiro
-[ ] Ícones dos power-ups
+- [ ] Vida
+- [ ] Dinheiro
+- [ ] Ícones dos power-ups
 
 ## Interface
-[ ] ?
+- [ ] ?
 
 
 
 # MÚSICA
 ## Música
-[ ] Música
+- [ ] Música
 
 ## Efeitos Sonoros
 ### Jogo
-[ ] Ganhar de inimigo
-[ ] Perder pro inimigo
+- [ ] Ganhar de inimigo
+- [ ] Perder pro inimigo
 
 ### Dinheiro
-[ ] Ganhar dinheiro
-[ ] Gastar dinheiro
-[ ] "Dinheiro insuficiente"
+- [ ] Ganhar dinheiro
+- [ ] Gastar dinheiro
+- [ ] "Dinheiro insuficiente"
 
 ### Power-ups
-[ ] Som de usar os power-ups
+- [ ] Som de usar os power-ups
 
 ### Vida
-[ ] Perder vida
-[ ] Inimigo perde vida
-[ ] Comprar vida
+- [ ] Perder vida
+- [ ] Inimigo perde vida
+- [ ] Comprar vida
