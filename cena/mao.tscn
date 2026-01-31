@@ -5,34 +5,33 @@
 [node name="Mao" type="Node2D"]
 
 [node name="Carta" parent="." instance=ExtResource("1_ddlim")]
-position = Vector2(285, 463)
-rotation = -0.17453292
+position = Vector2(-200, 50)
+rotation = -0.08726646
 numero = 1
 naipe = "espada"
 indice = -2
 
 [node name="Carta2" parent="." instance=ExtResource("1_ddlim")]
-position = Vector2(409, 419)
-rotation = -0.08726646
+position = Vector2(-100, 25)
+rotation = -0.04363323
 numero = 3
 naipe = "pau"
 indice = -1
 
 [node name="Carta3" parent="." instance=ExtResource("1_ddlim")]
-position = Vector2(542, 394)
 numero = 2
 naipe = "ouro"
 
 [node name="Carta4" parent="." instance=ExtResource("1_ddlim")]
-position = Vector2(663, 419)
-rotation = 0.08726646
+position = Vector2(100, 25)
+rotation = 0.04363323
 numero = 3
 naipe = "espada"
 indice = 1
 
 [node name="Carta5" parent="." instance=ExtResource("1_ddlim")]
-position = Vector2(785, 463)
-rotation = 0.17453292
+position = Vector2(200, 50)
+rotation = 0.08726646
 numero = 1
 naipe = "copa"
 indice = 2

@@ -19,6 +19,8 @@ func _on_area_mouse_exited() -> void:
 	if not selecionado:
 		$Sprite.scale = Vector2(1, 1)
 		self.z_index = 0
+	
+
 
 func _on_area_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.is_action_pressed("mouse_click") and event.button_index == 1:
