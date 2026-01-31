@@ -1,21 +1,21 @@
 [gd_scene load_steps=3 format=3 uid="uid://b0lyfy6fs60xm"]
 
-[ext_resource type="PackedScene" uid="uid://c3st8e7ug4fwj" path="res://cena/carta.tscn" id="1_ddlim"]
+[ext_resource type="PackedScene" uid="uid://c3st8e7ug4fwj" path="res://scene/carta.tscn" id="1_ddlim"]
 [ext_resource type="Script" uid="uid://c8kb746allm50" path="res://script/mao.gd" id="1_pxxx3"]
 
 [node name="Mao" type="Node2D"]
 script = ExtResource("1_pxxx3")
 
 [node name="Carta0" parent="." instance=ExtResource("1_ddlim")]
-position = Vector2(-330, 0)
+position = Vector2(-334, 0)
 
 [node name="Carta1" parent="." instance=ExtResource("1_ddlim")]
-position = Vector2(-165, 0)
+position = Vector2(-167, 0)
 
 [node name="Carta2" parent="." instance=ExtResource("1_ddlim")]
 
 [node name="Carta3" parent="." instance=ExtResource("1_ddlim")]
-position = Vector2(165, 0)
+position = Vector2(167, 0)
 
 [node name="Carta4" parent="." instance=ExtResource("1_ddlim")]
-position = Vector2(330, 0)
+position = Vector2(334, 0)

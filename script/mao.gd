@@ -10,13 +10,11 @@ func ordenar_mao():
 	mao.sort_custom(func(a: Vector2, b: Vector2): return a > b)
 
 func renderizar_mao():
-	print(mao.size())
 	$Carta0.atualizar_valor(mao[0])
 	$Carta1.atualizar_valor(mao[1])
 	$Carta2.atualizar_valor(mao[2])
 	$Carta3.atualizar_valor(mao[3])
 	$Carta4.atualizar_valor(mao[4])
-	print(mao[4])
 
 func criar_mao():
 	for i in range(5):
