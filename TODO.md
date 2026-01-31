@@ -4,6 +4,7 @@
 
 ## Features
 ### Jogo
+- [ ] lógica do jogo
 - [ ] IA do oponente
 - [ ] sistema de vida
 - [ ] sistema de mercado
@@ -14,7 +15,9 @@
 - [x] sistema de descartar carta
 
 ### Power-ups
-- [ ] poder ver quanto custa a mão do usuário
+- [ ] ver quanto custa a mão do inimigo
+- [ ] ver quantas cartas o inimigo vai jogar
+- [ ] ver qual a próxima carta do monte
 - [ ] comprar vida
 - [ ] comprar cartas novas pro baralho
 

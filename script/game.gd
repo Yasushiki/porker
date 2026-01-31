@@ -1,12 +1,13 @@
 extends Node2D
 
-var baralho: Baralho = Baralho.new()
+var baralho_jogador: Baralho = Baralho.new()
+
+func setup_jogador() -> void:
+	$Mao_Jogador.set_baralho(baralho_jogador) # compõe a instância da mão com a instância do baralho
+	$Mao_Jogador.criar_mao()
 
 func comecar_jogo() -> void:
-	baralho.criar_baralho() # cria a instância do baralho
-	$Mao.set_baralho(baralho) # compõe a instância da mão com a instância do baralho
-	$Mao.criar_mao()
-	
+	pass
 
 func _ready() -> void:
 	comecar_jogo()

@@ -7,7 +7,7 @@
 [node name="Mesa" type="Node2D"]
 script = ExtResource("1_pbtmx")
 
-[node name="Mao" parent="." instance=ExtResource("1_62x0a")]
+[node name="Mao_Jogador" parent="." instance=ExtResource("1_62x0a")]
 position = Vector2(548, 448)
 scale = Vector2(0.8, 0.8)
 

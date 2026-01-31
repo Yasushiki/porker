@@ -7,7 +7,7 @@ const RANQUE_PLACEHOLDER_MUDAR_DEPOIS = 3+1
 var monte: Array[Vector2i] = []
 var descarte: Array[Vector2i] = []
 
-func criar_baralho():
+func _init():
 	for naipe in range(1, NAIPE_PLACEHOLDER_MUDAR_DEPOIS): # naipes
 		for ranque in range(1, RANQUE_PLACEHOLDER_MUDAR_DEPOIS): # ranques
 			monte.append(Vector2i(naipe, ranque))
