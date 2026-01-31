@@ -7,10 +7,10 @@ func setup_jogador() -> void:
 	$Mao_Jogador.criar_mao()
 
 func comecar_jogo() -> void:
-	pass
+	setup_jogador()
 
 func _ready() -> void:
 	comecar_jogo()
 
 func _on_button_pressed() -> void:
-	$Mao.descartar_selecionadas()
+	$Mao_Jogador.descartar_selecionadas()

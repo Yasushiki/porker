@@ -12,12 +12,17 @@ config_version=5
 
 config/name="porker"
 run/main_scene="res://scene/mesa.tscn"
-config/features=PackedStringArray("4.5", "GL Compatibility")
+config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*res://script/global.gd"
+VerificadorMao="*res://script/VerificadorMao.cs"
+
+[dotnet]
+
+project/assembly_name="porker"
 
 [file_customization]
 

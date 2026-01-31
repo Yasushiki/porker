@@ -2,7 +2,15 @@ extends Node2D
 
 var selecionado: bool = false
 
+var naipe: int
+var ranque: int
+
+signal foi_selecionada(naipe, ranque)
+signal foi_desselecionada(naipe, ranque)
+
 func selecionar_sprite(carta: Vector2i) -> void:
+	naipe = carta.x
+	ranque = carta.y
 	if carta == Vector2i(0, 0):
 		$Sprite.texture = null
 	elif carta == Vector2i(-1, -1):
@@ -26,18 +34,18 @@ func _on_area_mouse_exited() -> void:
 	
 
 func _on_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if event is InputEventMouseButton and \
-	event.is_action_pressed("mouse_click") and \
-	event.button_index == 1:
+	if event is InputEventMouseButton and event.is_action_pressed("mouse_click") and event.button_index == 1:
 		$Sprite.scale = Vector2(1, 1)
 		if not selecionado:
 			selecionado = true
+			emit_signal("foi_selecionada", naipe, ranque)
 			self.position.y -= 70
 			self.scale = Vector2(1.1, 1.1)
 			self.z_index = 1
 			Global.hover = false
 		elif selecionado and not Global.hover:
 			selecionado = false
+			emit_signal("foi_desselecionada", naipe, ranque)
 			self.position.y += 70
 			self.scale = Vector2(1, 1)
 			self.z_index = 0
