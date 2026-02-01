@@ -7,49 +7,46 @@ var hover: bool = false
 
 """
 CARTAS
-Cenoura, Exódia, Leitão, Porco, Porca, Zhu Bajie
+Cenoura, Leitão, Porco, Porca, Zhu Bajie, Exódia
 
 NAIPES
 ?
 
 MÕES (mais fraca para a mais forte)
-Carta Alta
+Carta Alta-0
 #ver ordem das cartas
 
-Par
+Par-1
 #ver ordem das cartas
 
-Dois Pares
+Dois Pares-2
 #ver ordem das cartas
 
-Trinca
+Trinca-3
 cenoura, exódia, porco, porca, zhu, leitão
 
-Família
+Família-4
 Só existe uma família possível: leitão + porco + porca (mesmo naipe)
 
-Sequência
-Só existe uma sequência possível: leitão + porco + porca + zhu (mesmo naipe)
+Sequência-5
+Só existe uma sequência possível: leitão + porco + porca + zhu
 
-Flush
+Flush-6
 #ver ordem dos naipes
 
-Full House
+Full House-7
 #ver ordem da trinca -> ordem do par
 
-Família completa
+Família completa-8
 Só existe uma família completa: trinca de leitão + porco + porca
 
-Quadra
+Quadra-9
 #ver ordem das cartas -> ver ordem da carta restante
 
-Straight Flush
-#ver ordem dos naipes
-
-Quina
+Quina-10
 #ver ordem das cartas
 
-Exódia
+Exódia-11
 Só existe um exódia: todas as partes do exódia
 Exódia perde se houver uma cenoura na mão do oponente
 """
