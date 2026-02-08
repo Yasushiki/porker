@@ -30,94 +30,105 @@ static func verificar_mao(submao) -> Array:
 	"""
 	
 	if submao.size() == 1:
-		return [0, submao[0][0], submao[0][1], Verificador.analisar_cenoura(submao)]
+		return [0, submao[0][0], submao[0][1], analisar_cenoura(submao)]
 		
 	elif submao.size() == 2:
 		var anal = [
-			Verificador.analisar_par,
-			Verificador.analisar_carta_alta
+			analisar_par,
+			analisar_carta_alta
 		]
 		var val = [1, 0]
 		
 		for i in range(anal.size()):
-			carta = anal[i].call(submao)
-			if carta != Global.DEFAULT:
+			var resultado = anal[i].call(submao)
+			if resultado.e:
+				carta = resultado.carta_alta
 				num_mao = val[i]
 				break
 		
-		return [num_mao, carta[0], carta[1], Verificador.analisar_cenoura(submao)]
+		return [num_mao, carta[0], carta[1], analisar_cenoura(submao)]
 	
 	elif submao.size() == 3:
 		var anal = [
-			Verificador.analisar_familia,
-			Verificador.analisar_trinca,
-			Verificador.analisar_par, 
-			Verificador.analisar_carta_alta
+			analisar_familia,
+			analisar_trinca,
+			analisar_par, 
+			analisar_carta_alta
 		]
 		
 		var val = [4, 3, 1, 0]
 		
 		for i in range(anal.size()):
-			carta = anal[i].call(submao)
-			if carta != Global.DEFAULT:
+			var resultado = anal[i].call(submao)
+			if resultado.e:
+				carta = resultado.carta_alta
 				num_mao = val[i]
 				break
 			
-		return [num_mao, carta[0], carta[1], Verificador.analisar_cenoura(submao)]
+		return [num_mao, carta[0], carta[1], analisar_cenoura(submao)]
 
 	elif submao.size() == 4:
 		var anal = [
-			Verificador.analisar_quadra,
-			Verificador.analisar_sequencia,
-			Verificador.analisar_familia,
-			Verificador.analisar_trinca,
-			Verificador.analisar_dois_pares,
-			Verificador.analisar_par, 
-			Verificador.analisar_carta_alta
+			analisar_quadra,
+			analisar_sequencia,
+			analisar_familia,
+			analisar_trinca,
+			analisar_dois_pares,
+			analisar_par, 
+			analisar_carta_alta
 		]
 		
 		var val = [9, 5, 4, 3, 2, 1, 0]
 		
 		for i in range(anal.size()):
-			carta = anal[i].call(submao)
-			if carta != Global.DEFAULT:
+			var resultado = anal[i].call(submao)
+			if resultado.e:
+				carta = resultado.carta_alta
 				num_mao = val[i]
 				break
 				
-		return [num_mao, carta[0], carta[1], Verificador.analisar_cenoura(submao)]
+		return [num_mao, carta[0], carta[1], analisar_cenoura(submao)]
 		
 	else:
 		var anal = [
-			Verificador.analisar_exodia,
-			Verificador.analisar_quina,
-			Verificador.analisar_quadra,
-			Verificador.analisar_familia_completa,
-			Verificador.analisar_full_house,
-			Verificador.analisar_flush,
-			Verificador.analisar_sequencia,
-			Verificador.analisar_familia,
-			Verificador.analisar_trinca,
-			Verificador.analisar_dois_pares,
-			Verificador.analisar_par, 
-			Verificador.analisar_carta_alta
+			analisar_exodia,
+			analisar_quina,
+			analisar_quadra,
+			analisar_familia_completa,
+			analisar_full_house,
+			analisar_flush,
+			analisar_sequencia,
+			analisar_familia,
+			analisar_trinca,
+			analisar_dois_pares,
+			analisar_par, 
+			analisar_carta_alta
 		]
 		
 		var val = [11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
 		
 		for i in range(anal.size()):
-			carta = anal[i].call(submao)
-			if carta != Global.DEFAULT:
+			var resultado = anal[i].call(submao)
+			if resultado.e:
+				carta = resultado.carta_alta
 				num_mao = val[i]
 				break
 				
-		return [num_mao, carta[0], carta[1], Verificador.analisar_cenoura(submao)]
+		return [num_mao, carta[0], carta[1], analisar_cenoura(submao)]
+
+static func pega_extras(submao, cartas):
+	var extra = []
+	for c in submao:
+		if not cartas.has(c):
+			extra.append(c)
+	return extra
 
 
 static func analisar_cenoura(submao) -> int:
 	# retorna 1 caso tenha uma cenoura na mão, retorna 0 caso contrário
 	return 1 if submao[0][0] == -1 else 0
 
-static func analisar_carta_alta(submao) -> Array:
+static func analisar_carta_alta(submao) -> Dictionary:
 	# lista default com valores menores do que o menor valor possível (cenoura = (-1, -1))
 	var r = Global.DEFAULT.duplicate()
 	
@@ -126,88 +137,162 @@ static func analisar_carta_alta(submao) -> Array:
 		if carta[1] > r[1]:
 			r = [carta[0], carta[1]]
 	
-	return r
+	var extra = pega_extras(submao, [Vector2i(r[0], r[1])])
+	
+	return {
+		"tipo": 0,
+		"e": true,
+		"cartas": [Vector2i(r[0], r[1])],
+		"carta_alta": r,
+		"extra": extra
+	}
 
-static func analisar_par(submao, num: int = 0) -> Array:
+static func analisar_par(submao, num: int = 0) -> Dictionary:
 	# lista default com valores menores do que o menor valor possível (cenoura = (-1, -1))
 	var r = Global.DEFAULT.duplicate()
+	var cartas = []
+	var extra = []
+	
 	for i in range(submao.size() - 1):
-		# Se a carta passa por parâmetro for a mesma que está sendo analisada, ele pula a carta
+		# Se a carta passada por parâmetro tiver o mesmo ranque que a carta analisada, ele pula a carta
 		if submao[i][1] == num:
 			continue
 		for j in range(i + 1, submao.size()):
 			if submao[i][1] == submao[j][1]:
+				cartas.append(submao[i])
+				cartas.append(submao[j])
 				r = [submao[i][0], submao[i][1]] \
 				if submao[i].x > submao[j].x \
 				else [submao[j][0], submao[j][1]]
 				break
 	
-	return r
+	extra = pega_extras(submao, cartas)
+	
+	return {
+		"tipo": 1,
+		"e": r == Global.DEFAULT,
+		"cartas": cartas,
+		"carta_alta": r,
+		"extra": extra
+	}
 
-static func analisar_dois_pares(submao) -> Array:
-	var r1 = Global.DEFAULT.duplicate()
-	var r2 = Global.DEFAULT.duplicate()
+static func analisar_dois_pares(submao) -> Dictionary:
+	var r1_dict = analisar_par(submao)
 	
-	r1 = analisar_par(submao)
-	if r1 != Global.DEFAULT:
-		r2 = analisar_par(submao, r1[1])
+	if not r1_dict.e:
+		return { "e": false }
 	
+	# verifica se existe outro par com outro ranque (carta_alta[1]) na mão
+	var r2_dict = analisar_par(submao, r1_dict.carta_alta[1])
 	
-	if r1 != Global.DEFAULT and r2 != Global.DEFAULT:
-		return r1 if r1[1] > r2[1] else r2
+	if not r2_dict.e:
+		return { "e": false }
 	
-	return Global.DEFAULT
+	# coloca as quatro cartas dos pares na variável "cartas"
+	var cartas = []
+	cartas.append_array(r1_dict.cartas)
+	cartas.append_array(r2_dict.cartas)
+	
+	var extra = pega_extras(submao, cartas)
+	
+	return {
+		"tipo": 2,
+		"e": true,
+		"cartas": cartas,
+		"carta_alta": r1_dict.carta_alta if r1_dict.carta_alta[1] > r2_dict.carta_alta[1] else r2_dict.carta_alta,
+		"extra": extra
+	}
 
-static func analisar_trinca(submao) -> Array:
+static func analisar_trinca(submao) -> Dictionary:
 	# lista default com valores menores do que o menor valor possível (cenoura = (-1, -1))
 	var r = Global.DEFAULT.duplicate()
-	var c = 0
-	var num
+	var ranque
 	var nai
 	var h = []
 	
+	var cartas = []
+	var extra = []
+	
 	for i in range(submao.size()-1):
-		num = submao[i][1]
-		if not h.has(num):
-			h.append(num)
-			c += 1
+		ranque = submao[i][1]
+		if not h.has(ranque):
+			h.append(ranque)
+			cartas.append(submao[i])
 			for j in range(i+1, submao.size()):
-				if submao[j][1] == num:
-					c += 1
+				if submao[j][1] == ranque:
+					cartas.append(submao[i])
+					# as cartas estão organizadas do menor para o maior naipe
+					# se toda vez você pegar o naipe da carta, a última carta
+					# será a com maior ranque
 					nai = submao[j][0]
 			
-		if c == 3:
+		if cartas.size() == 3:
 			break
 		else:
-			c = 0
+			cartas = []
 	
-	if c == 3:
-		r = [nai, num]
+	extra = pega_extras(submao, cartas)
 	
-	return r
+	var e = false
+	if cartas.size() == 3:
+		e = true
+		r = [nai, ranque]
+	
+	return {
+		"tipo": 3,
+		"e": e,
+		"cartas": cartas,
+		"carta_alta": r,
+		"extra": extra
+	}
 
-static func analisar_familia(submao) -> Array:
+static func analisar_familia(submao) -> Dictionary:
 	# lista default com valores menores do que o menor valor possível (cenoura = (-1, -1))
 	var r = Global.DEFAULT.duplicate()
 	var nai = 0
 	
+	var cartas = []
+	var extra = []
 	
 	for i in range(submao.size()):
+		# verifica se a carta é um leitão, e pega o naipe em caso afirmativo
 		if submao[i][1] == 1:
+			cartas.append(submao[i])
 			nai = submao[i][0]
+			
+			# verifica se a submao tem um porco e uma porca de mesmo naipe
 			if submao.has(Vector2i(nai, 2)) and submao.has(Vector2i(nai, 3)):
+				# só existe uma carta de cada
+				# se existe um leitão de um naipe, o porco e a porca desse naipe serão
+				# respectivamente i+1 e i+2, pois serão as próximas cartas
+				cartas.append(i+1)
+				cartas.append(i+2)
 				break
 			else:
+				cartas = []
 				nai = 0
+	
+	extra = pega_extras(submao, cartas)
+	
+	var e = false
 	if nai != 0:
+		e = true
 		r = [nai, 3]
 	
-	return r
+	return {
+		"tipo": 4,
+		"e": e,
+		"cartas": cartas,
+		"carta_alta": r,
+		"extra": extra
+	}
 
-static func analisar_sequencia(submao) -> Array:
-	# lista default com valores menores do que o menor valor possível (cenoura = (-1, -1))
+static func analisar_sequencia(submao) -> Dictionary:
 	var r = Global.DEFAULT.duplicate()
 	var nai = 0
+	
+	var cartas = []
+	var extra = []
 	
 	for i in range(submao.size()):
 		if submao[i][1] == 1:
@@ -215,106 +300,191 @@ static func analisar_sequencia(submao) -> Array:
 			if submao.has(Vector2i(nai, 2)) and \
 			submao.has(Vector2i(nai, 3)) and \
 			submao.has(Vector2i(nai, 4)):
+				cartas.append(submao[i])
+				cartas.append(Vector2i(nai, 2))
+				cartas.append(Vector2i(nai, 3))
+				cartas.append(Vector2i(nai, 4))
 				break
 			else:
 				nai = 0
+	
+	extra = pega_extras(submao, cartas)
+	
+	var e = false
 	if nai != 0:
+		e = true
 		r = [nai, 4]
 	
-	return r
+	return {
+		"tipo": 5,
+		"e": e,
+		"cartas": cartas,
+		"carta_alta": r,
+		"extra": extra
+	}
 
-static func analisar_flush(submao) -> Array:
-	var r = [-2, -2]
-	
+static func analisar_flush(submao) -> Dictionary:
+	var r = Global.DEFAULT.duplicate()
 	var nai = submao[0][0]
 	
-	if submao.filter(func(a): return a[0] == nai).size() == 5:
-		return [nai, 4]
+	var cartas = submao.filter(func(a): return a[0] == nai)
+	var extra = []
 	
-	return r
+	var e = false
+	if cartas.size() == 5:
+		e = true
+		r = [nai, 4]
+	
+	return {
+		"tipo": 6,
+		"e": e,
+		"cartas": cartas if e else [],
+		"carta_alta": r,
+		"extra": extra
+	}
 
-static func analisar_full_house(submao) -> Array:
-	var r1 = Global.DEFAULT.duplicate()
-	var r2 = Global.DEFAULT.duplicate()
+static func analisar_full_house(submao) -> Dictionary:
+	var trinca_dict = analisar_trinca(submao)
 	
-	r1 = analisar_trinca(submao)
-	if r1 != Global.DEFAULT:
-		r2 = analisar_par(submao, r1[1])
+	if not trinca_dict.e:
+		return { "e": false }
 	
-	if r1 != Global.DEFAULT and r2 != Global.DEFAULT:
-		return r1
+	var par_dict = analisar_par(submao, trinca_dict.carta_alta[1])
 	
-	return Global.DEFAULT
+	if not par_dict.e:
+		return { "e": false }
+	
+	var cartas = []
+	cartas.append_array(trinca_dict.cartas)
+	cartas.append_array(par_dict.cartas)
+	
+	var extra = pega_extras(submao, cartas)
+	
+	return {
+		"tipo": 7,
+		"e": true,
+		"cartas": cartas,
+		"carta_alta": trinca_dict.carta_alta,
+		"extra": extra
+	}
 
-static func analisar_familia_completa(submao) -> Array:
-	var r1 = Global.DEFAULT.duplicate()
+static func analisar_familia_completa(submao) -> Dictionary:
+	var trinca_dict = analisar_trinca(submao)
+	
+	if not trinca_dict.e or trinca_dict.carta_alta[1] != 1:
+		return { "e": false }
+	
 	var c = 0
+	var cartas = trinca_dict.cartas.duplicate()
 	
-	r1 = analisar_trinca(submao)
-	if r1[1] == 1:
-		for carta in submao:
-			if carta[1] == 2:
-				c += 1
-			if carta[1] == 3:
-				c += 1
-			if c == 2:
-				return r1
+	for carta in submao:
+		if carta[1] == 2:
+			cartas.append(carta)
+			c += 1
+		if carta[1] == 3:
+			cartas.append(carta)
+			c += 1
 	
-	return Global.DEFAULT
+	var extra = pega_extras(submao, cartas)
+	
+	var e = (c == 2)
+	
+	return {
+		"tipo": 8,
+		"e": e,
+		"cartas": cartas if e else [],
+		"carta_alta": trinca_dict.carta_alta if e else Global.DEFAULT,
+		"extra": extra if e else []
+	}
 
-static func analisar_quadra(submao) -> Array:
-	# lista default com valores menores do que o menor valor possível (cenoura = (-1, -1))
+static func analisar_quadra(submao) -> Dictionary:
 	var r = Global.DEFAULT.duplicate()
-	var c = 0
-	var num
+	var ranque
 	var nai
 	var h = []
 	
+	var cartas = []
+	var extra = []
+	
 	for i in range(submao.size()-1):
-		num = submao[i][1]
-		if not h.has(num):
-			h.append(num)
-			c += 1
+		ranque = submao[i][1]
+		if not h.has(ranque):
+			h.append(ranque)
+			cartas.append(submao[i])
 			for j in range(i+1, submao.size()):
-				if submao[j][1] == num:
-					c += 1
+				if submao[j][1] == ranque:
+					cartas.append(submao[j])
 					nai = submao[j][0]
 			
-		if c == 4:
-			r = [nai, num]
+		if cartas.size() == 4:
 			break
 		else:
-			c = 0
-	return r
+			cartas = []
+	
+	extra = pega_extras(submao, cartas)
+	
+	var e = false
+	if cartas.size() == 4:
+		e = true
+		r = [nai, ranque]
+	
+	return {
+		"tipo": 9,
+		"e": e,
+		"cartas": cartas,
+		"carta_alta": r,
+		"extra": extra
+	}
 
-static func analisar_quina(submao) -> Array:
-	# lista default com valores menores do que o menor valor possível (cenoura = (-1, -1))
+static func analisar_quina(submao) -> Dictionary:
 	var r = Global.DEFAULT.duplicate()
-	var c = 0
-	var num
+	var ranque
 	var nai
 	var h = []
 	
+	var cartas = []
+	var extra = []
+	
 	for i in range(submao.size()-1):
-		num = submao[i][1]
-		if not h.has(num):
-			h.append(num)
-			c += 1
+		ranque = submao[i][1]
+		if not h.has(ranque):
+			h.append(ranque)
+			cartas.append(submao[i])
 			for j in range(i+1, submao.size()):
-				if submao[j][1] == num:
-					c += 1
+				if submao[j][1] == ranque:
+					cartas.append(submao[j])
 					nai = submao[j][0]
 			
-		if c == 5:
-			r = [nai, num]
+		if cartas.size() == 5:
 			break
 		else:
-			c = 0
-	return r
-
-static func analisar_exodia(submao) -> Array:
-	var r = [-2, -2]
+			cartas = []
 	
-	if submao.filter(func(a): return a[1] == 5).size() == 5:
-		r = [5, 5]
-	return r
+	extra = pega_extras(submao, cartas)
+	
+	var e = false
+	if cartas.size() == 5:
+		e = true
+		r = [nai, ranque]
+	
+	return {
+		"tipo": 10,
+		"e": e,
+		"cartas": cartas,
+		"carta_alta": r,
+		"extra": extra
+	}
+
+static func analisar_exodia(submao) -> Dictionary:
+	var cartas = submao.filter(func(a): return a[1] == 5)
+	
+	var e = (cartas.size() == 5)
+	var r = [5, 5] if e else Global.DEFAULT.duplicate()
+	
+	return {
+		"tipo": 11,
+		"e": e,
+		"cartas": cartas if e else [],
+		"carta_alta": r,
+		"extra": []
+	}
