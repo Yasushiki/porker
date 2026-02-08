@@ -1,15 +1,14 @@
 class_name Baralho extends RefCounted
 
-# ESSES DOIS VALORES DEVEM SER 6 (5 naipes e 5 ranques)
-const NAIPE_PLACEHOLDER_MUDAR_DEPOIS = 4+1
-const RANQUE_PLACEHOLDER_MUDAR_DEPOIS = 3+1
+const QT_NAIPE = 6
+const QT_RANQUE = 6
 
 var monte: Array[Vector2i] = []
 var descarte: Array[Vector2i] = []
 
 func _init():
-	for naipe in range(1, NAIPE_PLACEHOLDER_MUDAR_DEPOIS): # naipes
-		for ranque in range(1, RANQUE_PLACEHOLDER_MUDAR_DEPOIS): # ranques
+	for naipe in range(1, QT_NAIPE): # naipes
+		for ranque in range(1, QT_RANQUE): # ranques
 			monte.append(Vector2i(naipe, ranque))
 			# --- RANQUES ---
 			# 1 - Leitão

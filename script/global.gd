@@ -1,9 +1,8 @@
 extends Node
 
-var dinheiro: int = 0
-var vida: int = 0
-
 var hover: bool = false
+
+const DEFAULT = [-2, -2]
 
 """
 CARTAS

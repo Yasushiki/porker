@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dg20cstbdy7ik"]
+
+[ext_resource type="Script" uid="uid://cfcqf6u3v20ab" path="res://script/jogador.gd" id="1_wokll"]
+[ext_resource type="PackedScene" uid="uid://b0lyfy6fs60xm" path="res://scene/mao.tscn" id="2_ad57j"]
+[ext_resource type="Texture2D" uid="uid://ty25rlstfau4" path="res://placeholder/sprite/fundo.png" id="3_mrtcd"]
+
+[node name="Jogador" type="Node2D"]
+script = ExtResource("1_wokll")
+
+[node name="Mao" parent="." instance=ExtResource("2_ad57j")]
+scale = Vector2(0.8, 0.8)
+
+[node name="monte" type="Sprite2D" parent="."]
+position = Vector2(-804.9999, 6.0915947e-05)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_mrtcd")
+
+[node name="descarte" type="Sprite2D" parent="."]
+position = Vector2(670, 6.0915947e-05)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_mrtcd")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -897.0
+offset_top = -160.0
+offset_right = -710.0
+offset_bottom = -115.0
+text = "Descartar selecionadas"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

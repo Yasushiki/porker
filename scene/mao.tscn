@@ -19,3 +19,18 @@ position = Vector2(172, 0)
 
 [node name="Carta4" parent="." instance=ExtResource("1_ddlim")]
 position = Vector2(344, 0)
+
+[node name="Nome" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 234.0
+offset_top = -206.0
+offset_right = 823.0
+offset_bottom = -138.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1

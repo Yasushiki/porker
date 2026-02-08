@@ -9,8 +9,8 @@
 - [ ] sistema de vida
 - [ ] sistema de mercado
 - [ ] sistema de dinheiro
-- [ ] calcular quanto custa cada mão
-- [ ] programar o exódia
+- [x] calcular quanto custa cada mão
+- [x] programar o exódia
 - [ ] programar a cenoura (espanta exódia)
 - [x] sistema de descartar carta
 
@@ -24,8 +24,8 @@
 
 
 # CONCEITO
-- [ ] Quanto custa cada mão?
-- [ ] Quais mãos existem?
+- [x] Quanto custa cada mão?
+- [x] Quais mãos existem?
 - [ ] Quanto custa cada power-up?
 - [ ] Quanto custa a vida?
 - [ ] Quanto custa cada carta (cada carta tem um preço diferente? preço de custo?)?
