@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b8elvkd6pwc57" path="res://script/carta.gd" id="1_xysof"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fw410"]
-size = Vector2(164, 240)
+size = Vector2(164, 259)
 
 [node name="Carta" type="Node2D"]
 script = ExtResource("1_xysof")
@@ -11,6 +11,7 @@ script = ExtResource("1_xysof")
 [node name="Area" type="Area2D" parent="."]
 
 [node name="Colisao" type="CollisionShape2D" parent="Area"]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_fw410")
 
 [node name="Sprite" type="Sprite2D" parent="."]

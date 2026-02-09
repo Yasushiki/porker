@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0lyfy6fs60xm"]
+[gd_scene load_steps=4 format=3 uid="uid://b0lyfy6fs60xm"]
 
 [ext_resource type="PackedScene" uid="uid://c3st8e7ug4fwj" path="res://scene/carta.tscn" id="1_ddlim"]
 [ext_resource type="Script" uid="uid://c8kb746allm50" path="res://script/mao.gd" id="1_pxxx3"]
+[ext_resource type="FontFile" uid="uid://cinjcxcpm60ho" path="res://misc/PrinceValiant.ttf" id="3_veua4"]
 
 [node name="Mao" type="Node2D"]
 script = ExtResource("1_pxxx3")
@@ -26,11 +27,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 234.0
-offset_top = -206.0
-offset_right = 823.0
-offset_bottom = -138.0
+offset_left = 443.0
+offset_top = -207.0
+offset_right = 1032.0
+offset_bottom = -139.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_veua4")
+theme_override_font_sizes/font_size = 45
 horizontal_alignment = 1
 vertical_alignment = 1

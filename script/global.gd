@@ -4,6 +4,8 @@ var hover: bool = false
 
 const DEFAULT = [-2, -2]
 
+var nivel = 1
+
 """
 CARTAS
 Cenoura, Leitão, Porco, Porca, Zhu Bajie, Exódia

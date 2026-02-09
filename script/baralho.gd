@@ -6,6 +6,8 @@ const QT_RANQUE = 6
 var monte: Array[Vector2i] = []
 var descarte: Array[Vector2i] = []
 
+const CENOURA = Vector2i(-1, -1)
+
 func _init():
 	for naipe in range(1, QT_NAIPE): # naipes
 		for ranque in range(1, QT_RANQUE): # ranques
@@ -17,7 +19,7 @@ func _init():
 			# 4 - Zhu Bajie
 			# 5 - Parte do exódia
 	
-	monte.append(Vector2i(-1, -1)) # cenoura
+	monte.append(CENOURA) # cenoura
 
 func adicionar_carta(carta: Vector2i):
 	monte.append(carta)

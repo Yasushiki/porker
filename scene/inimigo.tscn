@@ -22,3 +22,15 @@ offset_left = -423.0
 offset_top = -153.0
 offset_right = -273.0
 offset_bottom = -130.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = -425.0
+offset_top = 131.0
+offset_right = -126.0
+offset_bottom = 219.0
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -421.0
+offset_top = 220.0
+offset_right = -208.0
+offset_bottom = 271.0

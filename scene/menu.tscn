@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://bluoy5g4a2amq"]
+
+[ext_resource type="Script" uid="uid://bprv8l8glax6c" path="res://script/menu.gd" id="1_bo06a"]
+[ext_resource type="FontFile" uid="uid://cinjcxcpm60ho" path="res://misc/PrinceValiant.ttf" id="1_e5g8k"]
+[ext_resource type="Texture2D" uid="uid://dupr40bdxsi7y" path="res://sprite/bg_menu.png" id="2_15se8"]
+[ext_resource type="AudioStream" uid="uid://buvyt4aous3ys" path="res://misc/Porker1.mp3" id="3_15se8"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_bo06a")
+
+[node name="bg" type="Sprite2D" parent="."]
+texture = ExtResource("2_15se8")
+centered = false
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1922.0
+offset_bottom = 224.0
+theme_override_fonts/font = ExtResource("1_e5g8k")
+theme_override_font_sizes/font_size = 200
+text = "Porker"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Comecar" type="Button" parent="."]
+offset_left = 793.0
+offset_top = 325.0
+offset_right = 1119.0
+offset_bottom = 487.0
+
+[node name="Creditos" type="Button" parent="."]
+offset_left = 793.0
+offset_top = 525.0
+offset_right = 1119.0
+offset_bottom = 687.0
+
+[node name="Ajuda" type="Button" parent="."]
+offset_left = 793.0
+offset_top = 725.0
+offset_right = 1119.0
+offset_bottom = 887.0
+
+[node name="Musica" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_15se8")
+autoplay = true
+
+[connection signal="finished" from="Musica" to="." method="_on_audio_stream_player_2d_finished"]

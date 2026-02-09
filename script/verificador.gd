@@ -3,24 +3,30 @@ class_name Verificador extends RefCounted
 static func calcular_custo(info_mao) -> int:
 	var custo = 0
 	
-	if info_mao == [0, -1, -1, 1]:
-		custo = 1
-	else:
-		# Quanto mais forte a mão, mais cara ela fica
-		custo += info_mao[0]*3
-		
-		# Preço extra pela carta mais alta
-		custo += info_mao[1]+info_mao[2]
-		
-		# Soma 1 se a mão possui a cenoura
-		if info_mao[3]:
-			custo += 1
+	# Apenas a cenoura custa 1 real
+	if info_mao.tipo == 0 and info_mao.carta_alta == [-1, -1]:
+		return 1
+	
+	
+	# Quanto mais forte a mão, mais cara ela fica
+	custo += info_mao.tipo*3
+	
+	# Preço extra pela carta mais alta
+	custo += info_mao.carta_alta[0] + info_mao.carta_alta[1]
+	
+	# Soma 1 se a mão possui a cenoura
+	if info_mao.cenoura:
+		custo += 1
+	
+	# Adiciona 2 reais por carta extra
+	custo += info_mao.extra.size() * 2
 	
 	return custo
 
-static func verificar_mao(submao) -> Array:
-	var carta
-	var num_mao
+
+static func verificar_mao(submao) -> Dictionary:
+	var resultado
+	var anal
 	"""
 	Retorna um Array com 4 valores, sendo eles:
 	- Qual a mão
@@ -30,45 +36,26 @@ static func verificar_mao(submao) -> Array:
 	"""
 	
 	if submao.size() == 1:
-		return [0, submao[0][0], submao[0][1], analisar_cenoura(submao)]
+		anal = [
+			analisar_carta_alta
+		]
 		
 	elif submao.size() == 2:
-		var anal = [
+		anal = [
 			analisar_par,
 			analisar_carta_alta
 		]
-		var val = [1, 0]
-		
-		for i in range(anal.size()):
-			var resultado = anal[i].call(submao)
-			if resultado.e:
-				carta = resultado.carta_alta
-				num_mao = val[i]
-				break
-		
-		return [num_mao, carta[0], carta[1], analisar_cenoura(submao)]
 	
 	elif submao.size() == 3:
-		var anal = [
+		anal = [
 			analisar_familia,
 			analisar_trinca,
 			analisar_par, 
 			analisar_carta_alta
 		]
-		
-		var val = [4, 3, 1, 0]
-		
-		for i in range(anal.size()):
-			var resultado = anal[i].call(submao)
-			if resultado.e:
-				carta = resultado.carta_alta
-				num_mao = val[i]
-				break
-			
-		return [num_mao, carta[0], carta[1], analisar_cenoura(submao)]
 
 	elif submao.size() == 4:
-		var anal = [
+		anal = [
 			analisar_quadra,
 			analisar_sequencia,
 			analisar_familia,
@@ -78,19 +65,8 @@ static func verificar_mao(submao) -> Array:
 			analisar_carta_alta
 		]
 		
-		var val = [9, 5, 4, 3, 2, 1, 0]
-		
-		for i in range(anal.size()):
-			var resultado = anal[i].call(submao)
-			if resultado.e:
-				carta = resultado.carta_alta
-				num_mao = val[i]
-				break
-				
-		return [num_mao, carta[0], carta[1], analisar_cenoura(submao)]
-		
 	else:
-		var anal = [
+		anal = [
 			analisar_exodia,
 			analisar_quina,
 			analisar_quadra,
@@ -105,16 +81,14 @@ static func verificar_mao(submao) -> Array:
 			analisar_carta_alta
 		]
 		
-		var val = [11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
-		
-		for i in range(anal.size()):
-			var resultado = anal[i].call(submao)
-			if resultado.e:
-				carta = resultado.carta_alta
-				num_mao = val[i]
-				break
-				
-		return [num_mao, carta[0], carta[1], analisar_cenoura(submao)]
+	for i in range(anal.size()):
+		resultado = anal[i].call(submao)
+		if resultado.e:
+			break
+			
+	resultado["cenoura"] = analisar_cenoura(submao)
+	return resultado
+
 
 static func pega_extras(submao, cartas):
 	var extra = []
@@ -124,9 +98,9 @@ static func pega_extras(submao, cartas):
 	return extra
 
 
-static func analisar_cenoura(submao) -> int:
+static func analisar_cenoura(submao) -> bool:
 	# retorna 1 caso tenha uma cenoura na mão, retorna 0 caso contrário
-	return 1 if submao[0][0] == -1 else 0
+	return true if submao[0][0] == -1 else false
 
 static func analisar_carta_alta(submao) -> Dictionary:
 	# lista default com valores menores do que o menor valor possível (cenoura = (-1, -1))
@@ -162,15 +136,17 @@ static func analisar_par(submao, num: int = 0) -> Dictionary:
 				cartas.append(submao[i])
 				cartas.append(submao[j])
 				r = [submao[i][0], submao[i][1]] \
-				if submao[i].x > submao[j].x \
-				else [submao[j][0], submao[j][1]]
+				if submao[i][1] > submao[j][1] \
+				else [submao[j][0], submao[j][1]] 
 				break
+		if cartas.size() > 0:
+			break
 	
 	extra = pega_extras(submao, cartas)
 	
 	return {
 		"tipo": 1,
-		"e": r == Global.DEFAULT,
+		"e": r != Global.DEFAULT,
 		"cartas": cartas,
 		"carta_alta": r,
 		"extra": extra
@@ -220,7 +196,7 @@ static func analisar_trinca(submao) -> Dictionary:
 			cartas.append(submao[i])
 			for j in range(i+1, submao.size()):
 				if submao[j][1] == ranque:
-					cartas.append(submao[i])
+					cartas.append(submao[j])
 					# as cartas estão organizadas do menor para o maior naipe
 					# se toda vez você pegar o naipe da carta, a última carta
 					# será a com maior ranque
@@ -265,8 +241,8 @@ static func analisar_familia(submao) -> Dictionary:
 				# só existe uma carta de cada
 				# se existe um leitão de um naipe, o porco e a porca desse naipe serão
 				# respectivamente i+1 e i+2, pois serão as próximas cartas
-				cartas.append(i+1)
-				cartas.append(i+2)
+				cartas.append(submao[i+1])
+				cartas.append(submao[i+2])
 				break
 			else:
 				cartas = []

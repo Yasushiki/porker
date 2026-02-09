@@ -13,7 +13,6 @@ config_version=5
 config/name="porker"
 run/main_scene="res://scene/mesa.tscn"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
 
 [autoload]
 
@@ -29,7 +28,8 @@ window/size/resizable=false
 [file_customization]
 
 folder_colors={
-"res://script/": "red"
+"res://script/": "red",
+"res://sprite/": "purple"
 }
 
 [input]

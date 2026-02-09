@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cfcqf6u3v20ab" path="res://script/jogador.gd" id="1_wokll"]
 [ext_resource type="PackedScene" uid="uid://b0lyfy6fs60xm" path="res://scene/mao.tscn" id="2_ad57j"]
-[ext_resource type="Texture2D" uid="uid://ty25rlstfau4" path="res://placeholder/sprite/fundo.png" id="3_mrtcd"]
+[ext_resource type="FontFile" uid="uid://cinjcxcpm60ho" path="res://misc/PrinceValiant.ttf" id="4_mrtcd"]
 
 [node name="Jogador" type="Node2D"]
 script = ExtResource("1_wokll")
@@ -10,21 +10,55 @@ script = ExtResource("1_wokll")
 [node name="Mao" parent="." instance=ExtResource("2_ad57j")]
 scale = Vector2(0.8, 0.8)
 
-[node name="monte" type="Sprite2D" parent="."]
-position = Vector2(-804.9999, 6.0915947e-05)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("3_mrtcd")
-
-[node name="descarte" type="Sprite2D" parent="."]
-position = Vector2(670, 6.0915947e-05)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("3_mrtcd")
-
-[node name="Button" type="Button" parent="."]
-offset_left = -897.0
-offset_top = -160.0
-offset_right = -710.0
-offset_bottom = -115.0
+[node name="Descartar" type="Button" parent="."]
+visible = false
+offset_left = -885.0
+offset_top = -188.0
+offset_right = -560.0
+offset_bottom = -111.0
+theme_type_variation = &"FlatButton"
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
+theme_override_fonts/font = ExtResource("4_mrtcd")
+theme_override_font_sizes/font_size = 38
+disabled = true
 text = "Descartar selecionadas"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Jogar" type="Button" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.0
+offset_top = 96.0
+offset_right = 131.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("4_mrtcd")
+theme_override_font_sizes/font_size = 47
+disabled = true
+text = "Jogar cartas"
+
+[node name="Vida" type="Label" parent="."]
+offset_left = -846.0
+offset_top = -98.0
+offset_right = -586.0
+offset_bottom = -20.0
+theme_override_constants/line_spacing = -15
+theme_override_fonts/font = ExtResource("4_mrtcd")
+theme_override_font_sizes/font_size = 30
+autowrap_mode = 2
+
+[node name="Dinheiro" type="Label" parent="."]
+offset_left = -474.0
+offset_top = 24.0
+offset_right = -359.0
+offset_bottom = 93.0
+theme_override_fonts/font = ExtResource("4_mrtcd")
+theme_override_font_sizes/font_size = 50
+
+[connection signal="pressed" from="Descartar" to="." method="_on_descartar_pressed"]
+[connection signal="pressed" from="Jogar" to="." method="_on_jogar_pressed"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://do4angyo7yelb"]
+
+[ext_resource type="FontFile" uid="uid://cinjcxcpm60ho" path="res://misc/PrinceValiant.ttf" id="1_3ft4m"]
+
+[node name="Vitoria" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1920.0
+offset_bottom = 1076.0
+theme_override_fonts/font = ExtResource("1_3ft4m")
+theme_override_font_sizes/font_size = 100
+text = "Você
+ganhou!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
