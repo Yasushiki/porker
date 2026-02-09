@@ -19,6 +19,7 @@ var estado: Estado = Estado.SETUP
 
 func _ready() -> void:
 	$Jogador.connect("jogar", _on_jogar.bind($Jogador))
+	$Jogador.connect("descartar", _on_descartar.bind($Jogador))
 	mudar_estado(Estado.SETUP)
 
 func mudar_estado(e):
@@ -42,6 +43,7 @@ func mudar_estado(e):
 		# Compara as mãos do jogador e do inimgo
 		# começa um novo round (TURNO_INIMIGO) ou acaba (FIM)
 		Estado.BATALHA:
+			mostrar_maos()
 			comparar_maos()
 		
 		# Acaba o jogo e mostra a tela de vitória
@@ -57,7 +59,7 @@ func mudar_estado(e):
 func setup_jogador() -> void:
 	$Jogador.setup()
 func setup_inimigo() -> void:
-	$Inimigo.setup(1)
+	$Inimigo.setup(Global.nivel)
 func setup_jogo() -> void:
 	setup_jogador()
 	setup_inimigo()
@@ -87,11 +89,41 @@ func _on_jogar(_filha):
 	
 	mudar_estado(Estado.BATALHA)
 
-
+func _on_descartar(_filha):
+	checar_jogador()
 
 ### Esperar jogador ###
 
 ### BATALHA ###
+func mostrar_maos():
+	var cartas_do_jogador = []
+	var cartas_do_inimigo = []
+	
+	for carta in mao_jogador.cartas:
+		if carta != Vector2i():
+			cartas_do_jogador.append(carta)
+	for carta in mao_jogador.extra:
+		if carta != Vector2i():
+			cartas_do_jogador.append(carta)
+	for i in range(cartas_do_jogador.size()):
+		get_node("Jogador/Carta%d" % i).selecionar_sprite(cartas_do_jogador[i])
+	for i in range(cartas_do_jogador.size(), 5):
+		get_node("Jogador/Carta%d" % i).selecionar_sprite(Vector2i())
+	
+	for carta in mao_inimigo.cartas:
+		if carta != Vector2i():
+			cartas_do_inimigo.append(carta)
+	for carta in mao_inimigo.extra:
+		if carta != Vector2i():
+			cartas_do_inimigo.append(carta)
+	for i in range(cartas_do_inimigo.size()):
+		get_node("Inimigo/Carta%d" % i).selecionar_sprite(cartas_do_inimigo[i])
+	for i in range(cartas_do_inimigo.size(), 5):
+		get_node("Inimigo/Carta%d" % i).selecionar_sprite(Vector2i())
+
+	cartas_do_jogador = []
+	cartas_do_inimigo = []
+
 func comparar_maos():
 	var dano = 0
 	
@@ -150,7 +182,7 @@ func empate():
 	if $Jogador.dinheiro == 0:
 		mudar_estado(Estado.PERDER)
 	
-	$Label.text = "Empate"
+	$Label.text = "Draw"
 	mudar_estado(Estado.TURNO_INIMIGO)
 	
 func ganhar_rodada(dano: int):
@@ -166,7 +198,7 @@ func ganhar_rodada(dano: int):
 		mudar_estado(Estado.GANHAR)
 		return
 	
-	$Label.text = "Ganhou"
+	$Label.text = "Won this round!"
 	mudar_estado(Estado.TURNO_INIMIGO)
 func perder_rodada(dano: int):
 	# O jogador ganha metade do que o inimigo gastou com a mão
@@ -177,10 +209,14 @@ func perder_rodada(dano: int):
 	$Jogador.atualizar_dinheiro(-preco_jogador)
 	$Jogador.atualizar_vida(-dano)
 	
-	if $Jogador.vida <= 0:
+	if $Jogador.vida <= 0 or $Jogador.dinheiro <= 0:
 		mudar_estado(Estado.PERDER)
 		return
 	
-	$Label.text = "Perdeu"
+	$Label.text = "Lost this round..."
 	mudar_estado(Estado.TURNO_INIMIGO)
 ### Batalha ###
+
+
+func _on_musica_finished() -> void:
+	$Musica.play()

@@ -10,13 +10,14 @@ config_version=5
 
 [application]
 
-config/name="porker"
-run/main_scene="res://scene/mesa.tscn"
+config/name="Porker"
+run/main_scene="uid://bluoy5g4a2amq"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 
 [autoload]
 
 Global="*res://script/global.gd"
+Musica="*res://script/musica.gd"
 
 [display]
 
@@ -24,6 +25,7 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=3
 window/size/resizable=false
+window/stretch/scale_mode="integer"
 
 [file_customization]
 
@@ -42,5 +44,9 @@ mouse_click={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/lossless_compression/force_png=true
+textures/decals/filter=0
+textures/light_projectors/filter=0

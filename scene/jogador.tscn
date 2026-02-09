@@ -21,7 +21,7 @@ theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0)
 theme_override_fonts/font = ExtResource("4_mrtcd")
 theme_override_font_sizes/font_size = 38
 disabled = true
-text = "Descartar selecionadas"
+text = "Discard cards"
 
 [node name="Jogar" type="Button" parent="."]
 visible = false
@@ -40,7 +40,7 @@ theme_type_variation = &"FlatButton"
 theme_override_fonts/font = ExtResource("4_mrtcd")
 theme_override_font_sizes/font_size = 47
 disabled = true
-text = "Jogar cartas"
+text = "Play cards"
 
 [node name="Vida" type="Label" parent="."]
 offset_left = -846.0

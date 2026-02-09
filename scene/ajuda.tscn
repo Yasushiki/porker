@@ -1,0 +1,554 @@
+[gd_scene load_steps=24 format=3 uid="uid://barp47a514hbq"]
+
+[ext_resource type="Script" uid="uid://cgyba3qpdxmyy" path="res://script/ajuda.gd" id="1_0ww51"]
+[ext_resource type="Texture2D" uid="uid://duir0chsfvyay" path="res://sprite/placa.png" id="1_gqwup"]
+[ext_resource type="FontFile" uid="uid://cinjcxcpm60ho" path="res://misc/PrinceValiant.ttf" id="2_ep3l7"]
+[ext_resource type="Texture2D" uid="uid://cmi1l4raodlnt" path="res://sprite/1-1.png" id="3_infyg"]
+[ext_resource type="Texture2D" uid="uid://cwy10ymq2qdde" path="res://sprite/d.png" id="3_l1evu"]
+[ext_resource type="Texture2D" uid="uid://5hgf6gmmsj8y" path="res://sprite/2-1.png" id="4_nk61t"]
+[ext_resource type="Texture2D" uid="uid://begj6hni0a6nl" path="res://sprite/e.png" id="4_qs4qb"]
+[ext_resource type="Texture2D" uid="uid://c7to0ql7q37a1" path="res://sprite/1-2.png" id="5_2wsqr"]
+[ext_resource type="Texture2D" uid="uid://dldtlwld22nk8" path="res://sprite/2-2.png" id="6_m1hyx"]
+[ext_resource type="Texture2D" uid="uid://brg4yi50aakhd" path="res://sprite/3-1.png" id="7_2wsqr"]
+[ext_resource type="Texture2D" uid="uid://dv8g8nen1wqk2" path="res://sprite/1-3.png" id="8_m1hyx"]
+[ext_resource type="Texture2D" uid="uid://d0tekp6a5w8nc" path="res://sprite/3-3.png" id="9_uct0r"]
+[ext_resource type="Texture2D" uid="uid://32ohwsqueyk0" path="res://sprite/4-4.png" id="10_04rjs"]
+[ext_resource type="Texture2D" uid="uid://y24fcefypw8c" path="res://sprite/5-4.png" id="11_04rjs"]
+[ext_resource type="Texture2D" uid="uid://b52022pg355vf" path="res://sprite/4-2.png" id="12_7vouo"]
+[ext_resource type="Texture2D" uid="uid://dowjxfbuo863w" path="res://sprite/5-3.png" id="13_qubix"]
+[ext_resource type="Texture2D" uid="uid://b1o1mtknfdeug" path="res://sprite/5-1.png" id="14_qubix"]
+[ext_resource type="Texture2D" uid="uid://wvil3j4aphx7" path="res://sprite/2-5.png" id="15_ncgc3"]
+[ext_resource type="Texture2D" uid="uid://c3w4nb4mnv65a" path="res://sprite/3-5.png" id="16_l1evu"]
+[ext_resource type="Texture2D" uid="uid://bqi1x0yoee8a1" path="res://sprite/4-5.png" id="17_qs4qb"]
+[ext_resource type="Texture2D" uid="uid://ct6ll8g3er73n" path="res://sprite/1-5.png" id="18_0ww51"]
+[ext_resource type="Texture2D" uid="uid://ckrx58wuemrua" path="res://sprite/5-5.png" id="19_55q1x"]
+[ext_resource type="Texture2D" uid="uid://r77jutxfh2oj" path="res://sprite/cenoura.png" id="23_55q1x"]
+
+[node name="Ajuda" type="Node2D"]
+script = ExtResource("1_0ww51")
+
+[node name="bg" type="Sprite2D" parent="."]
+texture = ExtResource("1_gqwup")
+centered = false
+
+[node name="back" type="Button" parent="."]
+offset_left = 34.0
+offset_top = 31.0
+offset_right = 523.0
+offset_bottom = 108.0
+theme_override_fonts/font = ExtResource("2_ep3l7")
+theme_override_font_sizes/font_size = 50
+text = "<- Back to main menu"
+
+[node name="Direita" type="TextureButton" parent="."]
+offset_left = 1720.0
+offset_top = 765.0
+offset_right = 1848.0
+offset_bottom = 893.0
+texture_normal = ExtResource("3_l1evu")
+texture_pressed = ExtResource("3_l1evu")
+texture_hover = ExtResource("3_l1evu")
+texture_disabled = ExtResource("3_l1evu")
+texture_focused = ExtResource("3_l1evu")
+
+[node name="Esquerda" type="TextureButton" parent="."]
+offset_left = 154.0
+offset_top = 768.0
+offset_right = 282.0
+offset_bottom = 896.0
+texture_normal = ExtResource("4_qs4qb")
+texture_pressed = ExtResource("4_qs4qb")
+texture_hover = ExtResource("4_qs4qb")
+texture_disabled = ExtResource("4_qs4qb")
+texture_focused = ExtResource("4_qs4qb")
+
+[node name="Label0" type="Label" parent="."]
+visible = false
+offset_left = 240.0
+offset_top = 158.0
+offset_right = 1759.0
+offset_bottom = 854.0
+theme_override_fonts/font = ExtResource("2_ep3l7")
+theme_override_font_sizes/font_size = 65
+text = "Porker is a game inspired in the classic Poker.
+
+Almost all the rules are the same, but there are some catches!
+
+Click on the arrow to see all the rules and the hands!"
+autowrap_mode = 2
+
+[node name="Label1" type="Label" parent="."]
+visible = false
+offset_left = 240.0
+offset_top = 158.0
+offset_right = 1759.0
+offset_bottom = 854.0
+theme_override_fonts/font = ExtResource("2_ep3l7")
+theme_override_font_sizes/font_size = 65
+text = "Rules:
+
+You will recieve 5 cards in the beginning of the game. At any given time, you can discard any number of cards! But beware, if you run out of cards, you will automatically lose the game."
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+offset_left = 240.0
+offset_top = 158.0
+offset_right = 1759.0
+offset_bottom = 854.0
+theme_override_fonts/font = ExtResource("2_ep3l7")
+theme_override_font_sizes/font_size = 65
+text = "Rules:
+
+Each hand has a value following this formula:
+
+Type of the card*3 + Rank of high card + Suit of high card + Quantity of extra cards*2 + 1 if you use the carrot"
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="."]
+visible = false
+offset_left = 240.0
+offset_top = 158.0
+offset_right = 1759.0
+offset_bottom = 854.0
+theme_override_fonts/font = ExtResource("2_ep3l7")
+theme_override_font_sizes/font_size = 65
+text = "Rules:
+
+If you win the round, you will gain the difference between the value of your hand and the enemy hand."
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="."]
+visible = false
+offset_left = 240.0
+offset_top = 158.0
+offset_right = 1759.0
+offset_bottom = 854.0
+theme_override_fonts/font = ExtResource("2_ep3l7")
+theme_override_font_sizes/font_size = 65
+text = "How to win:
+
+1 - Beat the enemy until it doesn't have any more hearts
+
+2 - Make the enemy lose money until it can't play anything"
+autowrap_mode = 2
+
+[node name="Label5" type="Label" parent="."]
+visible = false
+offset_left = 240.0
+offset_top = 158.0
+offset_right = 1759.0
+offset_bottom = 854.0
+theme_override_fonts/font = ExtResource("2_ep3l7")
+theme_override_font_sizes/font_size = 65
+text = "How to lose:
+
+1 - Lose all your hearts
+
+2 - Lose all your money
+
+3 - Use all your cards (playing or discarding it)"
+autowrap_mode = 2
+
+[node name="Label6" type="Label" parent="."]
+visible = false
+offset_left = 240.0
+offset_top = 158.0
+offset_right = 747.0
+offset_bottom = 854.0
+theme_override_fonts/font = ExtResource("2_ep3l7")
+theme_override_font_sizes/font_size = 65
+text = "Types of hands - 0
+
+High Card: Anything can be a high card"
+autowrap_mode = 2
+
+[node name="s" type="Sprite2D" parent="Label6"]
+position = Vector2(1139, 311)
+scale = Vector2(2, 2)
+texture = ExtResource("3_infyg")
+
+[node name="Label7" type="Label" parent="."]
+visible = false
+offset_left = 240.0
+offset_top = 158.0
+offset_right = 747.0
+offset_bottom = 854.0
+theme_override_fonts/font = ExtResource("2_ep3l7")
+theme_override_font_sizes/font_size = 65
+text = "Types of hands - 1
+
+Pair: Two cards of the same rank (the  boar in the middle)"
+autowrap_mode = 2
+
+[node name="s2" type="Sprite2D" parent="Label7"]
+position = Vector2(1236, 281)
+scale = Vector2(2, 2)
+texture = ExtResource("4_nk61t")
+
+[node name="s" type="Sprite2D" parent="Label7"]
+position = Vector2(872, 283)
+scale = Vector2(2, 2)
+texture = ExtResource("3_infyg")
+
+[node name="Label8" type="Label" parent="."]
+visible = false
+offset_left = 240.0
+offset_top = 158.0
+offset_right = 747.0
+offset_bottom = 854.0
+theme_override_fonts/font = ExtResource("2_ep3l7")
+theme_override_font_sizes/font_size = 65
+text = "Types of hands - 2
+
+Two Pairs: Two pairs... They can't be the same rank"
+autowrap_mode = 2
+
+[node name="s4" type="Sprite2D" parent="Label8"]
+position = Vector2(1200.5, 485)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_2wsqr")
+
+[node name="s3" type="Sprite2D" parent="Label8"]
+position = Vector2(1384.5, 485.00006)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_m1hyx")
+
+[node name="s" type="Sprite2D" parent="Label8"]
+position = Vector2(738, 186)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_infyg")
+
+[node name="s2" type="Sprite2D" parent="Label8"]
+position = Vector2(944, 186.00002)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_nk61t")
+
+[node name="Label9" type="Label" parent="."]
+visible = false
+offset_left = 240.0
+offset_top = 158.0
+offset_right = 747.0
+offset_bottom = 854.0
+theme_override_fonts/font = ExtResource("2_ep3l7")
+theme_override_font_sizes/font_size = 65
+text = "Types of hands - 3
+
+Three of a kind: Three cards with the same rank"
+autowrap_mode = 2
+
+[node name="s" type="Sprite2D" parent="Label9"]
+position = Vector2(738, 186)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_infyg")
+
+[node name="s2" type="Sprite2D" parent="Label9"]
+position = Vector2(944, 186.00002)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_nk61t")
+
+[node name="s3" type="Sprite2D" parent="Label9"]
+position = Vector2(1133, 186.00002)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_2wsqr")
+
+[node name="Label10" type="Label" parent="."]
+visible = false
+offset_left = 240.0
+offset_top = 158.0
+offset_right = 747.0
+offset_bottom = 854.0
+theme_override_fonts/font = ExtResource("2_ep3l7")
+theme_override_font_sizes/font_size = 65
+text = "Types of hands - 4
+
+Family: A piglet + a male boar + a female boar"
+autowrap_mode = 2
+
+[node name="s" type="Sprite2D" parent="Label10"]
+position = Vector2(738, 186)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_infyg")
+
+[node name="s2" type="Sprite2D" parent="Label10"]
+position = Vector2(944, 186.00002)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_2wsqr")
+
+[node name="s3" type="Sprite2D" parent="Label10"]
+position = Vector2(1133, 186.00002)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("8_m1hyx")
+
+[node name="Label11" type="Label" parent="."]
+visible = false
+offset_left = 240.0
+offset_top = 158.0
+offset_right = 747.0
+offset_bottom = 854.0
+theme_override_fonts/font = ExtResource("2_ep3l7")
+theme_override_font_sizes/font_size = 65
+text = "Types of hands - 5
+
+Straight: A piglet + a male boar + a female boar + Zhu Bajie"
+autowrap_mode = 2
+
+[node name="s" type="Sprite2D" parent="Label11"]
+position = Vector2(738, 186)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_infyg")
+
+[node name="s2" type="Sprite2D" parent="Label11"]
+position = Vector2(944, 186.00002)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_m1hyx")
+
+[node name="s3" type="Sprite2D" parent="Label11"]
+position = Vector2(1133, 186.00002)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("9_uct0r")
+
+[node name="s4" type="Sprite2D" parent="Label11"]
+position = Vector2(1329, 186.00002)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("10_04rjs")
+
+[node name="Label12" type="Label" parent="."]
+visible = false
+offset_left = 240.0
+offset_top = 158.0
+offset_right = 747.0
+offset_bottom = 854.0
+theme_override_fonts/font = ExtResource("2_ep3l7")
+theme_override_font_sizes/font_size = 65
+text = "Types of hands - 6
+
+Flush: A straight that all the cards have the same suit (background color)"
+autowrap_mode = 2
+
+[node name="s" type="Sprite2D" parent="Label12"]
+position = Vector2(738, 186)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_infyg")
+
+[node name="s2" type="Sprite2D" parent="Label12"]
+position = Vector2(944, 186.00002)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_2wsqr")
+
+[node name="s3" type="Sprite2D" parent="Label12"]
+position = Vector2(1133, 186.00002)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("8_m1hyx")
+
+[node name="s4" type="Sprite2D" parent="Label12"]
+position = Vector2(1329, 186.00002)
+scale = Vector2(1.5, 1.5)
+
+[node name="Label13" type="Label" parent="."]
+visible = false
+offset_left = 240.0
+offset_top = 158.0
+offset_right = 747.0
+offset_bottom = 854.0
+theme_override_fonts/font = ExtResource("2_ep3l7")
+theme_override_font_sizes/font_size = 65
+text = "Types of hands - 7
+
+Full house: Three of a kind + a pair"
+autowrap_mode = 2
+
+[node name="s" type="Sprite2D" parent="Label13"]
+position = Vector2(738, 186)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_infyg")
+
+[node name="s2" type="Sprite2D" parent="Label13"]
+position = Vector2(944, 186.00002)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_nk61t")
+
+[node name="s3" type="Sprite2D" parent="Label13"]
+position = Vector2(1133, 186.00002)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_2wsqr")
+
+[node name="s4" type="Sprite2D" parent="Label13"]
+position = Vector2(738, 522)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("11_04rjs")
+
+[node name="s5" type="Sprite2D" parent="Label13"]
+position = Vector2(944, 521)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("10_04rjs")
+
+[node name="Label14" type="Label" parent="."]
+visible = false
+offset_left = 240.0
+offset_top = 158.0
+offset_right = 747.0
+offset_bottom = 854.0
+theme_override_fonts/font = ExtResource("2_ep3l7")
+theme_override_font_sizes/font_size = 65
+text = "Types of hands - 8
+
+Full family: Three piglets + a male boar + a female boar"
+autowrap_mode = 2
+
+[node name="s" type="Sprite2D" parent="Label14"]
+position = Vector2(738, 186)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_infyg")
+
+[node name="s2" type="Sprite2D" parent="Label14"]
+position = Vector2(944, 186.00002)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_nk61t")
+
+[node name="s3" type="Sprite2D" parent="Label14"]
+position = Vector2(1133, 186.00002)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_2wsqr")
+
+[node name="s4" type="Sprite2D" parent="Label14"]
+position = Vector2(738, 522)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("12_7vouo")
+
+[node name="s5" type="Sprite2D" parent="Label14"]
+position = Vector2(944, 521)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("13_qubix")
+
+[node name="Label15" type="Label" parent="."]
+visible = false
+offset_left = 240.0
+offset_top = 158.0
+offset_right = 747.0
+offset_bottom = 854.0
+theme_override_fonts/font = ExtResource("2_ep3l7")
+theme_override_font_sizes/font_size = 65
+text = "Types of hands - 9
+
+Four of a kind"
+autowrap_mode = 2
+
+[node name="s" type="Sprite2D" parent="Label15"]
+position = Vector2(738, 186)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_infyg")
+
+[node name="s2" type="Sprite2D" parent="Label15"]
+position = Vector2(944, 186.00002)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_nk61t")
+
+[node name="s3" type="Sprite2D" parent="Label15"]
+position = Vector2(1133, 186.00002)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_2wsqr")
+
+[node name="s4" type="Sprite2D" parent="Label15"]
+position = Vector2(738, 522)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("14_qubix")
+
+[node name="Label16" type="Label" parent="."]
+visible = false
+offset_left = 240.0
+offset_top = 158.0
+offset_right = 747.0
+offset_bottom = 854.0
+theme_override_fonts/font = ExtResource("2_ep3l7")
+theme_override_font_sizes/font_size = 65
+text = "Types of hands - 10
+
+Five of a kind"
+autowrap_mode = 2
+
+[node name="s" type="Sprite2D" parent="Label16"]
+position = Vector2(738, 186)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_infyg")
+
+[node name="s2" type="Sprite2D" parent="Label16"]
+position = Vector2(944, 186.00002)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_nk61t")
+
+[node name="s3" type="Sprite2D" parent="Label16"]
+position = Vector2(1133, 186.00002)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_2wsqr")
+
+[node name="s4" type="Sprite2D" parent="Label16"]
+position = Vector2(738, 522)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("14_qubix")
+
+[node name="s5" type="Sprite2D" parent="Label16"]
+position = Vector2(937, 522)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_2wsqr")
+
+[node name="Label17" type="Label" parent="."]
+visible = false
+offset_left = 240.0
+offset_top = 158.0
+offset_right = 747.0
+offset_bottom = 854.0
+theme_override_fonts/font = ExtResource("2_ep3l7")
+theme_override_font_sizes/font_size = 65
+text = "Types of hands - 11
+
+EXODIA"
+autowrap_mode = 2
+
+[node name="s" type="Sprite2D" parent="Label17"]
+position = Vector2(788, 184)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("15_ncgc3")
+
+[node name="s2" type="Sprite2D" parent="Label17"]
+position = Vector2(986, 130.00002)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("16_l1evu")
+
+[node name="s3" type="Sprite2D" parent="Label17"]
+position = Vector2(1187, 233.00002)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("17_qs4qb")
+
+[node name="s4" type="Sprite2D" parent="Label17"]
+position = Vector2(873, 503)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("18_0ww51")
+
+[node name="s5" type="Sprite2D" parent="Label17"]
+position = Vector2(1118, 505)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_55q1x")
+
+[node name="Label18" type="Label" parent="."]
+visible = false
+offset_left = 240.0
+offset_top = 158.0
+offset_right = 1150.0
+offset_bottom = 854.0
+theme_override_fonts/font = ExtResource("2_ep3l7")
+theme_override_font_sizes/font_size = 65
+text = "Types of hands
+
+Carot: The only thing that can beat EXODIA. Play it against EXODIA to deal a massive damage.
+But be careful! The same trick can be used against you!"
+autowrap_mode = 2
+
+[node name="Cenoura" type="Sprite2D" parent="Label18"]
+position = Vector2(1106, 307)
+scale = Vector2(2, 2)
+texture = ExtResource("23_55q1x")
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Direita" to="." method="_on_direita_pressed"]
+[connection signal="pressed" from="Esquerda" to="." method="_on_esquerda_pressed"]

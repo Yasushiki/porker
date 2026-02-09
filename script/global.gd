@@ -6,6 +6,8 @@ const DEFAULT = [-2, -2]
 
 var nivel = 1
 
+var ajuda = 0
+
 """
 CARTAS
 Cenoura, Leitão, Porco, Porca, Zhu Bajie, Exódia

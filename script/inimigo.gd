@@ -90,7 +90,10 @@ func jogar_mao() -> void:
 
 func atualizar_vida(v: int):
 	vida += v
-	$Vida.text = "❤️".repeat(vida)
+	if vida > 0:
+		$Vida.text = "❤️".repeat(vida)
+	else:
+		$Vida.text = "💀"
 
 func atualizar_dinheiro(d: int):
 	dinheiro += d

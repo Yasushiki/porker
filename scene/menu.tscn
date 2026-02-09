@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bluoy5g4a2amq"]
+[gd_scene load_steps=4 format=3 uid="uid://bluoy5g4a2amq"]
 
 [ext_resource type="Script" uid="uid://bprv8l8glax6c" path="res://script/menu.gd" id="1_bo06a"]
 [ext_resource type="FontFile" uid="uid://cinjcxcpm60ho" path="res://misc/PrinceValiant.ttf" id="1_e5g8k"]
 [ext_resource type="Texture2D" uid="uid://dupr40bdxsi7y" path="res://sprite/bg_menu.png" id="2_15se8"]
-[ext_resource type="AudioStream" uid="uid://buvyt4aous3ys" path="res://misc/Porker1.mp3" id="3_15se8"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_bo06a")
@@ -26,21 +25,38 @@ offset_left = 793.0
 offset_top = 325.0
 offset_right = 1119.0
 offset_bottom = 487.0
-
-[node name="Creditos" type="Button" parent="."]
-offset_left = 793.0
-offset_top = 525.0
-offset_right = 1119.0
-offset_bottom = 687.0
+theme_override_fonts/font = ExtResource("1_e5g8k")
+theme_override_font_sizes/font_size = 65
+text = "Play"
 
 [node name="Ajuda" type="Button" parent="."]
 offset_left = 793.0
-offset_top = 725.0
+offset_top = 495.0
 offset_right = 1119.0
-offset_bottom = 887.0
+offset_bottom = 657.0
+theme_override_fonts/font = ExtResource("1_e5g8k")
+theme_override_font_sizes/font_size = 65
+text = "Help"
 
-[node name="Musica" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_15se8")
-autoplay = true
+[node name="Creditos" type="Button" parent="."]
+offset_left = 793.0
+offset_top = 665.0
+offset_right = 1119.0
+offset_bottom = 827.0
+theme_override_fonts/font = ExtResource("1_e5g8k")
+theme_override_font_sizes/font_size = 65
+text = "Credits"
 
-[connection signal="finished" from="Musica" to="." method="_on_audio_stream_player_2d_finished"]
+[node name="Sair" type="Button" parent="."]
+offset_left = 793.0
+offset_top = 835.0
+offset_right = 1119.0
+offset_bottom = 997.0
+theme_override_fonts/font = ExtResource("1_e5g8k")
+theme_override_font_sizes/font_size = 65
+text = "Exit"
+
+[connection signal="pressed" from="Comecar" to="." method="_on_comecar_pressed"]
+[connection signal="pressed" from="Ajuda" to="." method="_on_ajuda_pressed"]
+[connection signal="pressed" from="Creditos" to="." method="_on_creditos_pressed"]
+[connection signal="pressed" from="Sair" to="." method="_on_sair_pressed"]

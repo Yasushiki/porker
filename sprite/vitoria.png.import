@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7xwlj23uk3ye"
-path="res://.godot/imported/1-4.png-20cb038a1109345f96484d8542fbe87b.ctex"
+uid="uid://r1ggb10icss0"
+path="res://.godot/imported/vitoria.png-f98a71000ee33f062075be2691ae8135.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite/1-4.png"
-dest_files=["res://.godot/imported/1-4.png-20cb038a1109345f96484d8542fbe87b.ctex"]
+source_file="res://sprite/vitoria.png"
+dest_files=["res://.godot/imported/vitoria.png-f98a71000ee33f062075be2691ae8135.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

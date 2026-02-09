@@ -6,6 +6,7 @@ var vida: int = 6
 var dinheiro: int = 50
 
 signal jogar
+signal descartar
 
 func _ready() -> void:
 	$Mao.connect("tem_selecionada", _on_tem_selecionada.bind($Mao))
@@ -31,6 +32,7 @@ func _on_tem_selecionada(flag, _filha):
 
 func _on_descartar_pressed() -> void:
 	$Mao.descartar_selecionadas()
+	emit_signal("descartar")
 
 func _on_jogar_pressed() -> void:
 	$Mao.jogar_selecionadas()

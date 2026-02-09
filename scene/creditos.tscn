@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgluuuuk4qfpd"]
+
+[ext_resource type="Script" uid="uid://cwoe85aimmq5f" path="res://script/creditos.gd" id="1_n25ib"]
+[ext_resource type="Texture2D" uid="uid://cwmfvrr3tiwt2" path="res://sprite/creditos.png" id="1_njlfq"]
+[ext_resource type="FontFile" uid="uid://cinjcxcpm60ho" path="res://misc/PrinceValiant.ttf" id="2_2bq7n"]
+
+[node name="Creditos" type="Node2D"]
+script = ExtResource("1_n25ib")
+
+[node name="bg" type="Sprite2D" parent="."]
+texture = ExtResource("1_njlfq")
+centered = false
+
+[node name="Button" type="Button" parent="."]
+offset_left = 34.0
+offset_top = 31.0
+offset_right = 523.0
+offset_bottom = 107.0
+theme_override_fonts/font = ExtResource("2_2bq7n")
+theme_override_font_sizes/font_size = 50
+text = "<- Back to main menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

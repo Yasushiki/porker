@@ -84,8 +84,10 @@ func renderizar_mao() -> void:
 				i += 1
 		else:
 			var cartas: Array = get_children().filter(func(a): return a is Node2D)
+			var i: int = 0
 			for carta in cartas:
-				carta.selecionar_sprite(Vector2i(-2, -2))
+				carta.selecionar_sprite(mao[i], true)
+				i += 1
 
 func comprar_carta() -> void:
 	if not baralho.monte.is_empty():
@@ -158,28 +160,28 @@ func completar_mao() -> void:
 func imprimir_mao() -> void:
 	match info_mao.tipo:
 		0:
-			$Nome.text = "Carta alta"
+			$Nome.text = "High card"
 		1:
-			$Nome.text = "Par"
+			$Nome.text = "Pair"
 		2:
-			$Nome.text = "Dois pares"
+			$Nome.text = "Two pairs"
 		3:
-			$Nome.text = "Trinca"
+			$Nome.text = "Three of a kind"
 		4:
-			$Nome.text = "Família"
+			$Nome.text = "Family"
 		5: 
-			$Nome.text = "Sequência"
+			$Nome.text = "Straight"
 		6:
 			$Nome.text = "Flush"
 		7:
 			$Nome.text = "Full House"
 		8:
-			$Nome.text = "Família completa"
+			$Nome.text = "Full family"
 		9:
-			$Nome.text = "Quadra"
+			$Nome.text = "Four of a kind"
 		10:
-			$Nome.text = "Quina"
+			$Nome.text = "Five of a kind"
 		11:
-			$Nome.text = "EXÓDIA!!!"
+			$Nome.text = "EXODIA!!!"
 	
 	$Nome.text += "\nR$%d" % custo

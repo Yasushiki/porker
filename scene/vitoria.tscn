@@ -1,15 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://do4angyo7yelb"]
+[gd_scene load_steps=4 format=3 uid="uid://do4angyo7yelb"]
 
-[ext_resource type="FontFile" uid="uid://cinjcxcpm60ho" path="res://misc/PrinceValiant.ttf" id="1_3ft4m"]
+[ext_resource type="Texture2D" uid="uid://r1ggb10icss0" path="res://sprite/vitoria.png" id="1_3ft4m"]
+[ext_resource type="Script" uid="uid://bihm657jbbvxa" path="res://script/vitoria.gd" id="1_iu1fh"]
+[ext_resource type="FontFile" uid="uid://cinjcxcpm60ho" path="res://misc/PrinceValiant.ttf" id="2_ftuty"]
 
 [node name="Vitoria" type="Node2D"]
+script = ExtResource("1_iu1fh")
 
-[node name="Label" type="Label" parent="."]
-offset_right = 1920.0
-offset_bottom = 1076.0
-theme_override_fonts/font = ExtResource("1_3ft4m")
-theme_override_font_sizes/font_size = 100
-text = "Você
-ganhou!!!"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="bg" type="Sprite2D" parent="."]
+texture = ExtResource("1_3ft4m")
+centered = false
+
+[node name="Button" type="Button" parent="."]
+offset_left = 38.0
+offset_top = 25.0
+offset_right = 527.0
+offset_bottom = 102.0
+theme_override_fonts/font = ExtResource("2_ftuty")
+theme_override_font_sizes/font_size = 50
+text = "<- Back to main menu"
+
+[node name="ngp" type="Button" parent="."]
+offset_left = 1383.0
+offset_top = 955.0
+offset_right = 1872.0
+offset_bottom = 1032.0
+theme_override_fonts/font = ExtResource("2_ftuty")
+theme_override_font_sizes/font_size = 50
+text = "New Game +"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ngp" to="." method="_on_ngp_pressed"]
