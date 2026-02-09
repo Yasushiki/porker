@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cs5sh3ek87wyu"]
+[gd_scene load_steps=8 format=3 uid="uid://cs5sh3ek87wyu"]
 
 [ext_resource type="Script" uid="uid://dbk7f8uot8wnw" path="res://script/game.gd" id="1_pbtmx"]
 [ext_resource type="Texture2D" uid="uid://c338mt4d0umay" path="res://sprite/bg_mesa.png" id="2_ndrj5"]
 [ext_resource type="PackedScene" uid="uid://dg20cstbdy7ik" path="res://scene/jogador.tscn" id="3_gdvxh"]
 [ext_resource type="AudioStream" uid="uid://cmmtudqvml3ys" path="res://misc/pig_dance.mp3" id="4_ndrj5"]
 [ext_resource type="PackedScene" uid="uid://cllj3r81y8k3m" path="res://scene/inimigo.tscn" id="4_so0g2"]
+[ext_resource type="FontFile" uid="uid://cinjcxcpm60ho" path="res://misc/PrinceValiant.ttf" id="6_0yccc"]
 [ext_resource type="PackedScene" uid="uid://c3st8e7ug4fwj" path="res://scene/carta.tscn" id="6_ktonv"]
 
 [node name="Mesa" type="Node2D"]
@@ -18,27 +19,27 @@ centered = false
 position = Vector2(960, 123)
 
 [node name="Carta0" parent="Inimigo" instance=ExtResource("6_ktonv")]
-position = Vector2(310, 383)
+position = Vector2(310, 400)
 scale = Vector2(0.75, 0.75)
 selecionavel = false
 
 [node name="Carta1" parent="Inimigo" instance=ExtResource("6_ktonv")]
-position = Vector2(413, 383)
+position = Vector2(413, 400)
 scale = Vector2(0.75, 0.75)
 selecionavel = false
 
 [node name="Carta2" parent="Inimigo" instance=ExtResource("6_ktonv")]
-position = Vector2(516, 383)
+position = Vector2(516, 400)
 scale = Vector2(0.75, 0.75)
 selecionavel = false
 
 [node name="Carta3" parent="Inimigo" instance=ExtResource("6_ktonv")]
-position = Vector2(619, 383)
+position = Vector2(619, 400)
 scale = Vector2(0.75, 0.75)
 selecionavel = false
 
 [node name="Carta4" parent="Inimigo" instance=ExtResource("6_ktonv")]
-position = Vector2(722, 383)
+position = Vector2(722, 400)
 scale = Vector2(0.75, 0.75)
 selecionavel = false
 
@@ -46,35 +47,36 @@ selecionavel = false
 position = Vector2(960, 907)
 
 [node name="Carta0" parent="Jogador" instance=ExtResource("6_ktonv")]
-position = Vector2(-717, -401)
+position = Vector2(-717, -400)
 scale = Vector2(0.75, 0.75)
 selecionavel = false
 
 [node name="Carta1" parent="Jogador" instance=ExtResource("6_ktonv")]
-position = Vector2(-614, -401)
+position = Vector2(-614, -400)
 scale = Vector2(0.75, 0.75)
 selecionavel = false
 
 [node name="Carta2" parent="Jogador" instance=ExtResource("6_ktonv")]
-position = Vector2(-511, -401)
+position = Vector2(-511, -400)
 scale = Vector2(0.75, 0.75)
 selecionavel = false
 
 [node name="Carta3" parent="Jogador" instance=ExtResource("6_ktonv")]
-position = Vector2(-408, -401)
+position = Vector2(-408, -400)
 scale = Vector2(0.75, 0.75)
 selecionavel = false
 
 [node name="Carta4" parent="Jogador" instance=ExtResource("6_ktonv")]
-position = Vector2(-305, -401)
+position = Vector2(-305, -400)
 scale = Vector2(0.75, 0.75)
 selecionavel = false
 
 [node name="Label" type="Label" parent="."]
-offset_left = 134.0
-offset_top = 93.0
-offset_right = 450.0
-offset_bottom = 305.0
+offset_left = 794.0
+offset_top = 413.0
+offset_right = 1110.0
+offset_bottom = 625.0
+theme_override_fonts/font = ExtResource("6_0yccc")
 theme_override_font_sizes/font_size = 38
 
 [node name="TextureButton" type="TextureButton" parent="."]

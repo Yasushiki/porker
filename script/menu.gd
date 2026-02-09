@@ -2,6 +2,9 @@ extends Node2D
 
 func _ready():
 	Musica.play_menu_music()
+	if OS.get_name() == "Web":
+		$Sair.visible = false
+		$Sair.disabled = true
 
 func _on_creditos_pressed() -> void:
 	get_tree().change_scene_to_file("res://scene/creditos.tscn")

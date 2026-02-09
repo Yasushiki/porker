@@ -10,7 +10,10 @@ signal descartar
 
 func _ready() -> void:
 	$Mao.connect("tem_selecionada", _on_tem_selecionada.bind($Mao))
-	$Vida.text = "❤️".repeat(vida)
+	if OS.get_name() == "Web":
+		$Vida.text = "<3".repeat(vida)
+	else:
+		$Vida.text = "❤️".repeat(vida)
 	$Dinheiro.text = "R$" + str(dinheiro)
 
 func setup() -> void:
@@ -39,14 +42,17 @@ func _on_jogar_pressed() -> void:
 	emit_signal("jogar")
 
 func baralho_vazio() -> bool:
-	if baralho.monte.is_empty():
+	if baralho.monte.is_empty() and $Mao.mao_vazia():
 		return true
 	else:
 		return false
 
 func atualizar_vida(v: int):
 	vida += v
-	$Vida.text = "❤️".repeat(vida)
+	if OS.get_name() == "Web":
+		$Vida.text = "<3".repeat(vida)
+	else:
+		$Vida.text = "❤️".repeat(vida)
 
 func atualizar_dinheiro(d: int):
 	dinheiro += d

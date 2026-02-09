@@ -17,11 +17,13 @@ func setup_baralho(n: int):
 		pass
 
 func setup_parametros(n: int):
-	@warning_ignore("integer_division")
-	vida = floor(5 + n/2)
-	dinheiro = 80 + 20*n
+	vida = 4 + n
+	dinheiro = 20 + 20*n
 	
-	$Vida.text = "❤️".repeat(vida)
+	if OS.get_name() == "Web":
+		$Vida.text = "<3".repeat(vida)
+	else:
+		$Vida.text = "❤️".repeat(vida)
 	
 	if OS.is_debug_build():
 		$Dinheiro.text = str(dinheiro)
@@ -68,7 +70,6 @@ func decidir_mao() -> void:
 				# se o inimigo consegue jogar uma cenoura, ele joga
 				if dinheiro+1 >= custo and jogada.cenoura:
 					jogada.extra.append(Baralho.CENOURA)
-				
 				if OS.is_debug_build():
 					$Label.text = str($Mao.info_mao)
 					$Label2.text = str($Mao.custo)
@@ -80,9 +81,9 @@ func decidir_mao() -> void:
 		$Label.text = str($Mao.info_mao)
 
 func jogar_mao() -> void:
-	
-	$Mao.jogar_selecionadas($Mao.info_mao.cartas)
-	$Mao.jogar_selecionadas($Mao.info_mao.extra)
+	if $Mao.info_mao != {}:
+		$Mao.jogar_selecionadas($Mao.info_mao.cartas)
+		$Mao.jogar_selecionadas($Mao.info_mao.extra)
 	
 #	if not baralho.has(Baralho.CENOURA):
 #		baralho.adicionar_carta(Baralho.CENOURA)
@@ -91,9 +92,10 @@ func jogar_mao() -> void:
 func atualizar_vida(v: int):
 	vida += v
 	if vida > 0:
-		$Vida.text = "❤️".repeat(vida)
-	else:
-		$Vida.text = "💀"
+		if OS.get_name() == "Web":
+			$Vida.text = "<3".repeat(vida)
+		else:
+			$Vida.text = "❤️".repeat(vida)
 
 func atualizar_dinheiro(d: int):
 	dinheiro += d

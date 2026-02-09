@@ -11,6 +11,9 @@ signal tem_selecionada(flag)
 
 @export var inimigo: bool = false
 
+func mao_vazia() -> bool:
+	return mao.filter(func(a): return a == Vector2i()).size() >= 5
+
 func _ready() -> void:
 	# se a mão é do inimigo, muda todas as cartas para cartas do inimigo (viradas)
 	if inimigo:

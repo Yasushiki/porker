@@ -15,14 +15,15 @@ offset_left = 453.0
 offset_top = -116.0
 offset_right = 828.0
 offset_bottom = 115.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 autowrap_mode = 1
 
 [node name="Dinheiro" type="Label" parent="."]
-offset_left = -423.0
-offset_top = -153.0
-offset_right = -273.0
-offset_bottom = -130.0
+offset_left = 188.0
+offset_top = 116.0
+offset_right = 338.0
+offset_bottom = 139.0
 
 [node name="Label" type="Label" parent="."]
 offset_left = -425.0

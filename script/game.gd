@@ -76,10 +76,12 @@ func turno_inimigo():
 
 ### ESPERAR JOGADOR ###
 func checar_jogador():
-	if $Jogador.vida == 0 or $Jogador.baralho_vazio():
+	if $Jogador.vida <= 0 or $Jogador.baralho_vazio() or \
+	   $Jogador.dinheiro <= 0:
 		print($Jogador.vida)
 		print($Jogador.baralho_vazio())
 		mudar_estado(Estado.PERDER)
+	
 
 func _on_jogar(_filha):
 	mao_jogador = $"Jogador/Mao".info_mao
@@ -90,6 +92,7 @@ func _on_jogar(_filha):
 	mudar_estado(Estado.BATALHA)
 
 func _on_descartar(_filha):
+	$Jogador.atualizar_dinheiro(-$Jogador/Mao.custo)
 	checar_jogador()
 
 ### Esperar jogador ###
@@ -110,16 +113,17 @@ func mostrar_maos():
 	for i in range(cartas_do_jogador.size(), 5):
 		get_node("Jogador/Carta%d" % i).selecionar_sprite(Vector2i())
 	
-	for carta in mao_inimigo.cartas:
-		if carta != Vector2i():
-			cartas_do_inimigo.append(carta)
-	for carta in mao_inimigo.extra:
-		if carta != Vector2i():
-			cartas_do_inimigo.append(carta)
-	for i in range(cartas_do_inimigo.size()):
-		get_node("Inimigo/Carta%d" % i).selecionar_sprite(cartas_do_inimigo[i])
-	for i in range(cartas_do_inimigo.size(), 5):
-		get_node("Inimigo/Carta%d" % i).selecionar_sprite(Vector2i())
+	if mao_inimigo != {}:
+		for carta in mao_inimigo.cartas:
+			if carta != Vector2i():
+				cartas_do_inimigo.append(carta)
+		for carta in mao_inimigo.extra:
+			if carta != Vector2i():
+				cartas_do_inimigo.append(carta)
+		for i in range(cartas_do_inimigo.size()):
+			get_node("Inimigo/Carta%d" % i).selecionar_sprite(cartas_do_inimigo[i])
+		for i in range(cartas_do_inimigo.size(), 5):
+			get_node("Inimigo/Carta%d" % i).selecionar_sprite(Vector2i())
 
 	cartas_do_jogador = []
 	cartas_do_inimigo = []
@@ -177,9 +181,9 @@ func empate():
 	$Jogador.atualizar_dinheiro(-preco_jogador)
 	$Inimigo.atualizar_dinheiro(-preco_inimigo)
 	
-	if $Inimigo.dinheiro == 0:
+	if $Inimigo.dinheiro <= 0:
 		mudar_estado(Estado.GANHAR)
-	if $Jogador.dinheiro == 0:
+	if $Jogador.dinheiro <= 0:
 		mudar_estado(Estado.PERDER)
 	
 	$Label.text = "Draw"

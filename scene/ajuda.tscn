@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://barp47a514hbq"]
+[gd_scene load_steps=28 format=3 uid="uid://barp47a514hbq"]
 
 [ext_resource type="Script" uid="uid://cgyba3qpdxmyy" path="res://script/ajuda.gd" id="1_0ww51"]
 [ext_resource type="Texture2D" uid="uid://duir0chsfvyay" path="res://sprite/placa.png" id="1_gqwup"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://y24fcefypw8c" path="res://sprite/5-4.png" id="11_04rjs"]
 [ext_resource type="Texture2D" uid="uid://b52022pg355vf" path="res://sprite/4-2.png" id="12_7vouo"]
 [ext_resource type="Texture2D" uid="uid://dowjxfbuo863w" path="res://sprite/5-3.png" id="13_qubix"]
+[ext_resource type="Texture2D" uid="uid://b7xwlj23uk3ye" path="res://sprite/1-4.png" id="14_ghkw8"]
 [ext_resource type="Texture2D" uid="uid://b1o1mtknfdeug" path="res://sprite/5-1.png" id="14_qubix"]
 [ext_resource type="Texture2D" uid="uid://wvil3j4aphx7" path="res://sprite/2-5.png" id="15_ncgc3"]
 [ext_resource type="Texture2D" uid="uid://c3w4nb4mnv65a" path="res://sprite/3-5.png" id="16_l1evu"]
@@ -23,6 +24,9 @@
 [ext_resource type="Texture2D" uid="uid://ct6ll8g3er73n" path="res://sprite/1-5.png" id="18_0ww51"]
 [ext_resource type="Texture2D" uid="uid://ckrx58wuemrua" path="res://sprite/5-5.png" id="19_55q1x"]
 [ext_resource type="Texture2D" uid="uid://r77jutxfh2oj" path="res://sprite/cenoura.png" id="23_55q1x"]
+[ext_resource type="Texture2D" uid="uid://dbutis428j2iv" path="res://sprite/4-1.png" id="25_oncff"]
+[ext_resource type="Texture2D" uid="uid://dtqjpxr8a2e8t" path="res://sprite/3-2.png" id="26_rxdrj"]
+[ext_resource type="Texture2D" uid="uid://cryhddn8c6vch" path="res://sprite/3-4.png" id="27_2pi4a"]
 
 [node name="Ajuda" type="Node2D"]
 script = ExtResource("1_0ww51")
@@ -70,7 +74,7 @@ offset_right = 1759.0
 offset_bottom = 854.0
 theme_override_fonts/font = ExtResource("2_ep3l7")
 theme_override_font_sizes/font_size = 65
-text = "Porker is a game inspired in the classic Poker.
+text = "Porker is a game inspired by the classic Poker.
 
 Almost all the rules are the same, but there are some catches!
 
@@ -87,7 +91,7 @@ theme_override_fonts/font = ExtResource("2_ep3l7")
 theme_override_font_sizes/font_size = 65
 text = "Rules:
 
-You will recieve 5 cards in the beginning of the game. At any given time, you can discard any number of cards! But beware, if you run out of cards, you will automatically lose the game."
+You will recieve 5 cards in the beginning of the game. At any moment, you can discard any number of cards! But beware, if you run out of cards, you will automatically lose the game."
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="."]
@@ -102,7 +106,7 @@ text = "Rules:
 
 Each hand has a value following this formula:
 
-Type of the card*3 + Rank of high card + Suit of high card + Quantity of extra cards*2 + 1 if you use the carrot"
+Type of hand*3 + Rank of high card + Suit of high card + Quantity of extra cards*2 + 1 if you use the carrot"
 autowrap_mode = 2
 
 [node name="Label3" type="Label" parent="."]
@@ -344,6 +348,7 @@ texture = ExtResource("8_m1hyx")
 [node name="s4" type="Sprite2D" parent="Label12"]
 position = Vector2(1329, 186.00002)
 scale = Vector2(1.5, 1.5)
+texture = ExtResource("14_ghkw8")
 
 [node name="Label13" type="Label" parent="."]
 visible = false
@@ -548,6 +553,78 @@ autowrap_mode = 2
 position = Vector2(1106, 307)
 scale = Vector2(2, 2)
 texture = ExtResource("23_55q1x")
+
+[node name="Label19" type="Label" parent="."]
+visible = false
+offset_left = 240.0
+offset_top = 158.0
+offset_right = 1150.0
+offset_bottom = 260.0
+theme_override_fonts/font = ExtResource("2_ep3l7")
+theme_override_font_sizes/font_size = 65
+text = "Order of suits"
+autowrap_mode = 2
+
+[node name="s" type="Sprite2D" parent="Label19"]
+position = Vector2(140.5, 350)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_infyg")
+
+[node name="s2" type="Sprite2D" parent="Label19"]
+position = Vector2(440.44, 350)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_nk61t")
+
+[node name="s3" type="Sprite2D" parent="Label19"]
+position = Vector2(740.5, 350)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_2wsqr")
+
+[node name="s4" type="Sprite2D" parent="Label19"]
+position = Vector2(1040.5, 350)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("25_oncff")
+
+[node name="s5" type="Sprite2D" parent="Label19"]
+position = Vector2(1340.5, 350)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("14_qubix")
+
+[node name="Label20" type="Label" parent="."]
+visible = false
+offset_left = 240.0
+offset_top = 158.0
+offset_right = 1150.0
+offset_bottom = 260.0
+theme_override_fonts/font = ExtResource("2_ep3l7")
+theme_override_font_sizes/font_size = 65
+text = "Order of ranks"
+autowrap_mode = 2
+
+[node name="s" type="Sprite2D" parent="Label20"]
+position = Vector2(140.5, 350)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_2wsqr")
+
+[node name="s2" type="Sprite2D" parent="Label20"]
+position = Vector2(440.44, 350)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("26_rxdrj")
+
+[node name="s3" type="Sprite2D" parent="Label20"]
+position = Vector2(740.5, 350)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("9_uct0r")
+
+[node name="s4" type="Sprite2D" parent="Label20"]
+position = Vector2(1040.5, 350)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("27_2pi4a")
+
+[node name="s5" type="Sprite2D" parent="Label20"]
+position = Vector2(1340.5, 350)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("16_l1evu")
 
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Direita" to="." method="_on_direita_pressed"]
