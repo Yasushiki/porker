@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dg20cstbdy7ik"]
+[gd_scene load_steps=5 format=3 uid="uid://dg20cstbdy7ik"]
 
 [ext_resource type="Script" uid="uid://cfcqf6u3v20ab" path="res://script/jogador.gd" id="1_wokll"]
 [ext_resource type="PackedScene" uid="uid://b0lyfy6fs60xm" path="res://scene/mao.tscn" id="2_ad57j"]
 [ext_resource type="FontFile" uid="uid://cinjcxcpm60ho" path="res://misc/PrinceValiant.ttf" id="4_mrtcd"]
+
+[sub_resource type="SystemFont" id="SystemFont_ad57j"]
 
 [node name="Jogador" type="Node2D"]
 script = ExtResource("1_wokll")
@@ -47,8 +49,9 @@ offset_left = -846.0
 offset_top = -98.0
 offset_right = -586.0
 offset_bottom = -20.0
+theme_override_colors/font_color = Color(0.67411184, 0.005425214, 0.12350673, 1)
 theme_override_constants/line_spacing = -15
-theme_override_fonts/font = ExtResource("4_mrtcd")
+theme_override_fonts/font = SubResource("SystemFont_ad57j")
 theme_override_font_sizes/font_size = 30
 autowrap_mode = 2
 

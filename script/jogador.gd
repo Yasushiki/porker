@@ -10,7 +10,7 @@ signal descartar
 
 func _ready() -> void:
 	$Mao.connect("tem_selecionada", _on_tem_selecionada.bind($Mao))
-	$Vida.text = "❤️".repeat(vida)
+	$Vida.text = "<3 ".repeat(vida)
 	$Dinheiro.text = "R$" + str(dinheiro)
 
 func setup() -> void:
@@ -46,7 +46,7 @@ func baralho_vazio() -> bool:
 
 func atualizar_vida(v: int):
 	vida += v
-	$Vida.text = "❤️".repeat(vida)
+	$Vida.text = "<3 ".repeat(vida)
 
 func atualizar_dinheiro(d: int):
 	dinheiro += d

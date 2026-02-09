@@ -48,6 +48,7 @@ theme_override_font_sizes/font_size = 65
 text = "Credits"
 
 [node name="Sair" type="Button" parent="."]
+visible = false
 offset_left = 793.0
 offset_top = 835.0
 offset_right = 1119.0

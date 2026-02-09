@@ -21,7 +21,7 @@ func setup_parametros(n: int):
 	vida = floor(5 + n/2)
 	dinheiro = 80 + 20*n
 	
-	$Vida.text = "❤️".repeat(vida)
+	$Vida.text = "<3 ".repeat(vida)
 	
 	if OS.is_debug_build():
 		$Dinheiro.text = str(dinheiro)
@@ -91,9 +91,9 @@ func jogar_mao() -> void:
 func atualizar_vida(v: int):
 	vida += v
 	if vida > 0:
-		$Vida.text = "❤️".repeat(vida)
+		$Vida.text = "<3 ".repeat(vida)
 	else:
-		$Vida.text = "💀"
+		$Vida.text = ""
 
 func atualizar_dinheiro(d: int):
 	dinheiro += d
